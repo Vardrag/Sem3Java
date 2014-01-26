@@ -49,5 +49,3 @@ public class MainCar extends HttpServlet
 	   response.getWriter().println("</html>");
 	       }    
 }
-
-// Kommentar von ERIC @@@@@@@@@@@@@@@@@@ clemens
