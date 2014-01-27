@@ -14,7 +14,7 @@ public String getFarbe()/*Ausgabe Lackfarbe des Autos*/ {
 	return strFarbe;
 }
 
-public String getAutofirma() {
+public String getAutofirma() /*Ausgabe Herrsteller des Autos*/{
 	return strAutofirma;
 }
 
@@ -30,12 +30,15 @@ public void setKilometerstand(int intKilometerstand) {
 	this.intKilometerstand = intKilometerstand;
 }
 
-public String addCar()/*Objekt zu der Tabelle "Angebot" hinzufügen; gibt SQL-String weiter*/{
+public void addCar()/*Objekt zu der Tabelle "Angebot" hinzufügen; gibt SQL-String weiter*/{
 	strSQLarg = "Insert into Angebot VALUES Angebot.Farbe ="  + strFarbe + ", Angebot.Herrsteller = ";
-	return strSQLarg;
 }
 
+public void removeCar()/*Objekt aus der Tabelle entfernen; gibt SQL-String weiter*/{
+	
+}
+public void editCar()/*bestehendes Objekt wird verändert; gibt SQL-String weiter*/{
 
-
+}
 
 }
