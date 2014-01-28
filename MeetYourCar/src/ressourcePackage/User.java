@@ -1,10 +1,20 @@
 package ressourcePackage;
 
 public class User {
+//Variablen
 private String strVorname; //Vorname des Users
 private String strNachname;// Nachname des Users
 private int intID; //ID des Users (autoFeld der DB)
 private String strEmail; // Emailadresse des Users
+
+
+//private Methoden
+private int loadID()/*lädt ID aus DB nach*/{
+	return 0; // hier Ergebnis der DBAbfrage einfügen	
+}
+
+
+//Setter / Getter Methoden
 public String getStrVorname() {
 	return strVorname;
 }
@@ -27,15 +37,15 @@ public void setStrEmail(String strEmail) {
 	this.strEmail = strEmail;
 }
 
+
+//öffentliche Methoden
 public void addUser()/*fügt neuen User der DB hinzu*/{
-	
+	//User hinzufügen
+	intID = loadID();
 }
 
 public void updateUser/*Sucht DBEintrag nach ID und updatet alle anderen Felder*/(){
 
 }
 
-private void loadID()/*lädt ID aus DB nach*/{
-	
-}
 }
