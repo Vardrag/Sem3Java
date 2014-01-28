@@ -1,6 +1,6 @@
-package calc_package;
+package ressourcePackage;
 
-public class ClsCar {
+public class Car {
 private int intKilometerstand; //Kilometerstand des Autos
 private String strAutofirma; //Herstellerfirma des Autos
 private String strFarbe; //Farbe des Autos, als Name (evtl. auch als Farbcode angebbar)
