@@ -11,7 +11,7 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>MainCar</servlet-name>
-    <servlet-class>car_package.MainCar</servlet-class>
+    <servlet-class>frontendPackage.MainCar</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MainCar</servlet-name>
