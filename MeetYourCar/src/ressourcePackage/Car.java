@@ -1,35 +1,25 @@
 package ressourcePackage;
 
+import java.util.Currency;
+
 public class Car {
-private int intKilometerstand; //Kilometerstand des Autos
-private String strAutofirma; //Herstellerfirma des Autos
+//Variablen
+public int intKilometerstand; //Kilometerstand des Autos
+public String strAutofirma; //Marke des Autos
 private String strFarbe; //Farbe des Autos, als Name (evtl. auch als Farbcode angebbar)
-private String strSQLarg;
+public String strSQLarg;
+public int datErstzul; //Erstzulassung
+public String strKrSt; //Kraftstoff
+public int intKmStand; //Kilometerstand
+public String strLeistung; //Motorleistung
+public Currency crcPreis; //Angebotspreis
+public String strSonst; //Sonstiges; vorübergehend
 
-public void setFarbe(String eingFarbe){
-	strFarbe = eingFarbe;
-}
 
-public String getFarbe()/*Ausgabe Lackfarbe des Autos*/ {
-	return strFarbe;
-}
+//private Methoden
 
-public String getAutofirma() /*Ausgabe Herrsteller des Autos*/{
-	return strAutofirma;
-}
 
-public void setAutofirma(String strAutofirma) {
-	this.strAutofirma = strAutofirma;
-}
-
-public int getKilometerstand() {
-	return intKilometerstand;
-}
-
-public void setKilometerstand(int intKilometerstand) {
-	this.intKilometerstand = intKilometerstand;
-}
-
+//öffentliche Methoden
 public void addCar()/*Objekt zu der Tabelle "Angebot" hinzufügen; gibt SQL-String weiter*/{
 	strSQLarg = "Insert into Angebot VALUES Angebot.Farbe ="  + strFarbe + ", Angebot.Herrsteller = ";
 }
