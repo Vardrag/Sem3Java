@@ -8,25 +8,10 @@ public class FunctCar /* Stellt Funktionen für die Arbeit mit Objekten der Klass
 		StringBuilder strB = new StringBuilder();
 		
 		//Beginn SQL-String bauen
-		strB.append("Select * from ");
-		strB.append("Tabelle"); //Tabellenname Fehlt
-		strB.append(" Where ");
-		if (referenzCar.strAutofirma != null) //SQL-Bedingung "Marke"
-		{
-			//Spalte plus Bedingung
-			//Variable	
-		}
-		if (referenzCar.crcPreis != null) //SQL-Bedingung "Preis"
-		{
-			//Spalte plus Bedingung
-			//Variable	
+		strB.append("Select * from Tabelle WHERE Tabelle.Feld1 = Variable1");
+		for (int i = 2; i < 10; i++) {
+			strB.append(" AND Tabelle.Feld"+i+" = Variable"+i);
 		}		
-		if (referenzCar.datErstzul != 0) //SQL-Bedingung "Erstzulassung"
-		{
-			//Spalte plus Bedingung
-			//Variable	
-		}		
-		
 		// Ende SQL-String bauen
 		referenzCar.strSQLarg = strB.toString();
 	
@@ -37,7 +22,7 @@ public class FunctCar /* Stellt Funktionen für die Arbeit mit Objekten der Klass
 		return resultCar; //gibt Car-Array zur Ausgabe zurück
 	}
 	
-	private Car[] dbToCar(){ //Konvertiert die DB-Rückgabe in ein Car-Arryay zur Weiterbearbeitung
+	private Car[] dbToCar(){ //Konvertiert die DB-Rückgabe in ein Car-Array zur Weiterbearbeitung
 		
 		return null;
 		
