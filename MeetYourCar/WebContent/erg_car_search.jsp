@@ -53,7 +53,7 @@
                <br/><br/>
             </div>
             <div class="erg_suchanfrage">
-               <b>Ergebnis Ihrer Suchanfrage</b><br/><br/>
+               <b>Folgende Angebote sind vorhanden</b><br/><br/>
                --- ERG DER SUCHANFRAGE AUS DB ---
                <br/><br/>
             </div>
