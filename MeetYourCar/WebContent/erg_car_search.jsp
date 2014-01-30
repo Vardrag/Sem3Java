@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
+<jsp:include page="/MainCar" flush="true"/> <% //lädt die MainCar.java ,  wird momentan nicht benötigt%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
@@ -13,36 +15,45 @@
          <div class="top"></div>
          <div class="container">
             <div class="mycss">
-               Ihre Suchanfrage<br/>
+               <b>Ihre Suchanfrage</b><br/>
                <div class="second_h">Kontaktieren Sie den Fahrzeughalter!</div>
             </div>
             <br/><br/>
             <div class="head">
                <div class="anmeldung">
-                  Ihre Suchanfrage<br/><br/>
+                  <b>Ihre Suchanfrage</b><br/><br/>
                </div>
             </div>
             <div class="links">
-               Markee<br/>
-               AusgabeTEXT
+               Marke<br/>
+               <% String carMarke = request.getParameter("Marke"); %>
+               <%= carMarke %>
                <br/><br/>
                Leistung<br/>
-               AusgabeTEXT
+               <% String carLeistung = request.getParameter("Leistung"); %>
+               <%= carLeistung %>
                <br/><br/>
                Erstzulassung<br/>
-               AusgabeTEXT 
+               <% String carErstzulassung = request.getParameter("Erstzulassung"); %>
+               <%= carErstzulassung %>
                <br/><br/>
             </div>
             <div class="rechts">
                Preis<br/>
-               AusgabeTEXT<br/><br/>
+               <% String carPreis = request.getParameter("Preis"); %>
+               <%= carPreis %>
+               <br/><br/>
                Kraftstoff<br/>
-               AusgabeTEXT<br/><br/>
+               <% String carKraftstoff = request.getParameter("Kraftstoff"); %>
+               <%= carKraftstoff %>
+               <br/><br/>
                Kilometerstand<br/>
-               AusgabeTEXT<br/><br/>
+               <% String carKilometerstand = request.getParameter("Kilometerstand"); %>
+               <%= carKilometerstand %>
+               <br/><br/>
             </div>
             <div class="erg_suchanfrage">
-               Ergebnis Ihrer Suchanfrage<br/><br/>
+               <b>Ergebnis Ihrer Suchanfrage</b><br/><br/>
                --- ERG DER SUCHANFRAGE AUS DB ---
                <br/><br/>
             </div>

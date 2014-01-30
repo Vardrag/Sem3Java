@@ -1,6 +1,7 @@
 package frontendPackage;
 
 import java.io.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 //import java.net.*;
@@ -8,7 +9,7 @@ import javax.servlet.http.*;
 public class MainCar extends HttpServlet
 {
    static final long serialVersionUID = 1L;
-
+   
    @Override
    public void doGet( HttpServletRequest requ, HttpServletResponse resp )
    throws ServletException, IOException
@@ -23,7 +24,7 @@ public class MainCar extends HttpServlet
    }
    
    //Abfrage per Post
-   protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+  public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	          throws ServletException, IOException {
 	   
 	   //Benutzerauswahl in Variablen speichern
@@ -37,7 +38,7 @@ public class MainCar extends HttpServlet
 	   String carSonstiges = request.getParameter("sonstiges");
 	   
 	   //Ausgabe Benutzerauswahl
-	   response.getWriter().println("<html>");
+	   /*response.getWriter().println("<html>");
 	   response.getWriter().println("Marke: " + carMarke + "<br/>");
 	   response.getWriter().println("Leistung: " + carLeistung + "<br/>");
 	   response.getWriter().println("Erstzulassung: " + carErstzulassung + "<br/>");
@@ -49,7 +50,7 @@ public class MainCar extends HttpServlet
 	   response.getWriter().println("<p> <a href='/MeetYourCarRoot'>zur&uuml;ck</a> </p>");
 	   response.getWriter().println("<p> <a href='/MeetYourCarRoot/erg_car_search.jsp'>auswertung</a> </p>");
 	   response.getWriter().println("</html>");
-	   
+	   */
 	   
 	   /*//POPUP JAVASCRIPT Windows
 	   PrintWriter out = response.getWriter();  
@@ -58,7 +59,6 @@ public class MainCar extends HttpServlet
 	   out.println("alert('testmeldung');");  
 	   out.println("</script>");
 	   */
-	       }    
-   
-   
+	   }  
 }
+
