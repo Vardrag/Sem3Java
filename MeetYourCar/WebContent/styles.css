@@ -57,6 +57,10 @@ a{
 	color:#FF0000;
 }
 
+.erg_suchanfrage{
+	margin: 0px 200px 0px 0px;
+}
+
 .wrap{
 	margin: 0 auto;
 	width: 724px;

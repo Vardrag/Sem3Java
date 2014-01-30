@@ -3,6 +3,7 @@ package frontendPackage;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+//import java.net.*;
 
 public class MainCar extends HttpServlet
 {
@@ -46,7 +47,9 @@ public class MainCar extends HttpServlet
 	   response.getWriter().println("Kilometerstand: " + carKilometerstand + "<br/>");
 	   response.getWriter().println("Sonstiges: " + carSonstiges + "<br/>");
 	   response.getWriter().println("<p> <a href='/MeetYourCarRoot'>zur&uuml;ck</a> </p>");
+	   response.getWriter().println("<p> <a href='/MeetYourCarRoot/erg_car_search.jsp'>auswertung</a> </p>");
 	   response.getWriter().println("</html>");
+	   
 	   
 	   /*//POPUP JAVASCRIPT Windows
 	   PrintWriter out = response.getWriter();  
@@ -56,4 +59,6 @@ public class MainCar extends HttpServlet
 	   out.println("</script>");
 	   */
 	       }    
+   
+   
 }
