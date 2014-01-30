@@ -52,7 +52,10 @@ a{
 	text-align:center;
 }
 
-
+.pflichtfeld{
+	margin: 0px 200px 0px 0px;
+	color:#FF0000;
+}
 
 .wrap{
 	margin: 0 auto;
@@ -88,6 +91,35 @@ a{
 	
 }
 
+.textbox{ 
+height:18px; 
+width: 150px; 
+border: 1px solid #B9BDC1; 
+color: #797979; 
+-moz-box-shadow: 0 2px 4px #bbb inset; 
+-webkit-box-shadow: 0 2px 4px #BBB inset; 
+box-shadow: 0 2px 4px #BBB inset; 
+-moz-border-radius: 3px; 
+-webkit-border-radius: 3px; 
+border-radius: 3px; 
+} 
+.textbox:focus { 
+background-color: #E7E8E7; 
+outline: 0; 
+} 
+
+.anrede{
+height:22px; 
+width: 155px; 
+border: 1px solid #B9BDC1; 
+color: #797979; 
+-moz-box-shadow: 0 2px 4px #bbb inset; 
+-webkit-box-shadow: 0 2px 4px #BBB inset; 
+box-shadow: 0 2px 4px #BBB inset; 
+-moz-border-radius: 3px; 
+-webkit-border-radius: 3px; 
+border-radius: 3px; 
+}
 
 .suchen {
 	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
@@ -97,19 +129,6 @@ a{
 	background:-moz-linear-gradient( center top, #bddbfa 5%, #85adf7 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#85adf7');
 	background-color:#bddbfa;
-	-webkit-border-top-left-radius:0px;
-	-moz-border-radius-topleft:0px;
-	border-top-left-radius:0px;
-	-webkit-border-top-right-radius:0px;
-	-moz-border-radius-topright:0px;
-	border-top-right-radius:0px;
-	-webkit-border-bottom-right-radius:0px;
-	-moz-border-radius-bottomright:0px;
-	border-bottom-right-radius:0px;
-	-webkit-border-bottom-left-radius:0px;
-	-moz-border-radius-bottomleft:0px;
-	border-bottom-left-radius:0px;
-	text-indent:0;
 	border:1px solid #84bbf3;
 	display:inline-block;
 	color:#ffffff;
