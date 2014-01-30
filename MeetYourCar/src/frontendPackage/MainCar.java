@@ -47,5 +47,13 @@ public class MainCar extends HttpServlet
 	   response.getWriter().println("Sonstiges: " + carSonstiges + "<br/>");
 	   response.getWriter().println("<p> <a href='/MeetYourCarRoot'>zur&uuml;ck</a> </p>");
 	   response.getWriter().println("</html>");
+	   
+	   /*//POPUP JAVASCRIPT Windows
+	   PrintWriter out = response.getWriter();  
+	   response.setContentType("text/html");  
+	   out.println("<script type=\"text/javascript\">");  
+	   out.println("alert('testmeldung');");  
+	   out.println("</script>");
+	   */
 	       }    
 }
