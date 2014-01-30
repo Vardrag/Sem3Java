@@ -25,6 +25,6 @@ public class FunctCar /* Stellt Funktionen für die Arbeit mit Objekten der Klass
 	private Car[] dbToCar(){ //Konvertiert die DB-Rückgabe in ein Car-Array zur Weiterbearbeitung
 		
 		return null;
-		
+		//Testkommentar
 	}
 }
