@@ -13,50 +13,27 @@
          <div class="top"></div>
          <form method="POST" action="#" name="auswertung_login" class="container">
             <div class="mycss">
-               Anmeldung<br/>
-               <div class="second_h">Nur wenige Schritte!</div>
+               Ihr persönliches Profil-Login<br/>
+               <div class="second_h">Login und direkt Angebote erstellen!</div>
             </div>
             <br/><br/>
             <div class="head">
                <div class="anmeldung">
-                  Jetzt kostenlos Anmelden<br/><br/>
+                  Jetzt Einloggen!<br/><br/>
                </div>
             </div>
             <div class="links">
-               <p>
-                  Anrede*<br/>
-                  <select name="ges" class="drop_select">
-                     <option value="female">Frau</option>
-                     <option value="male">Herr</option>
-                  </select>
-               </p>
-               <p>Vorname*<br/>
-                  <input class="textbox"type="text" name="vorname"> 
-               </p>
-               <p>Nachname*<br/>
-                  <input class="textbox"type="text" name="nachname"> 
-               </p>
-               <p>Benutzername*<br/>
-                  <input class="textbox"type="text" name="nachname"> 
-               </p>
+               Benutzername<br/>
+               <input class="textbox"type="text" name="login_benutzername"> 
+               <br/><br/>
             </div>
             <div class="rechts">
-               <p>E-Mail*<br/>
-                  <input class="textbox"type="text" name="email">
-               </p>
-               <p>E-Mail Bestätigen*<br/>
-                  <input class="textbox" type="password" name="passwort">
-               </p>
-               <p>Passwort*<br/>
-                  <input class="textbox" type="password" name="passwort">
-               </p>
-               Passwort Bestätigen*<br/>
-               <input class="textbox" type="password" name="passwort"><br/><br/>
+               Passwort<br/>
+               <input class="textbox" type="password" name="login_pw"><br/><br/>
+               <br/>
             </div>
-            <div class="pflichtfeld">
-               *Pflichfeld<br/><br/>
-            </div>
-            <input type="submit" value="registrieren" class="suchen"/> oder <a href="/MeetYourCarRoot/index.jsp">zur Startseite</a>
+            <p style="margin: 0 200px 0 0;"><input type="submit" value="login" class="suchen"/> oder <a href="/MeetYourCarRoot/index.jsp">zur Startseite</a>
+            </p>
          </form>
          <div class="footer">
             <img src="pics/hr.jpg" class="btw">
