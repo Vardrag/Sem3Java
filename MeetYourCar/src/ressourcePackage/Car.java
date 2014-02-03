@@ -13,22 +13,22 @@ public String strKrSt; //Kraftstoff
 public int intKmStand; //Kilometerstand
 public String strLeistung; //Motorleistung
 public Currency crcPreis; //Angebotspreis
-public String strSonst; //Sonstiges; vorübergehend
+public String strSonst; //Sonstiges; vorï¿½bergehend
 
 
 //private Methoden
 
 
-//öffentliche Methoden
-public void addCar()/*Objekt zu der Tabelle "Angebot" hinzufügen; gibt SQL-String weiter*/{
+//ï¿½ffentliche Methoden
+public void addCar()/*Objekt zu der Tabelle "Angebot" hinzufï¿½gen; gibt SQL-String weiter*/{
 	strSQLarg = "Insert into Angebot VALUES Angebot.Farbe ="  + strFarbe + ", Angebot.Herrsteller = ";
 }
 
 public void removeCar()/*Objekt aus der Tabelle entfernen; gibt SQL-String weiter*/{
 	
 }
-public void editCar()/*bestehendes Objekt wird verändert; gibt SQL-String weiter*/{
+public void editCar()/*bestehendes Objekt wird verï¿½ndert; gibt SQL-String weiter*/{
 
 }
-
+// Objektvariblen als String ausgeben; Als String einlesen
 }
