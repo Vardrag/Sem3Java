@@ -45,20 +45,7 @@
             <a href="#"><img src="pics/test3_db.jpg" alt="car" name="car3_slide" width="193px"/></a>
             <br/>	<br/>
             <img src="pics/hr.jpg" class="btw">
-            <br/><br/>
-            <h3>Impressum</h3>
-            <p>Angaben gem‰ﬂ ß 5 TMG:<br/></p>
-            <p>Martin Fischer, Eric Borisch, Clemens Klinner<br/>
-               Hans-Grundig-Straﬂe, 25<br/>
-               01307 Dresden<br/>
-            </p>
-            <h3>Kontakt:</h3>
-            Telefon: 0351 447220<br/>
-            E-Mail: Kontakt@MeetYourCar.de
-            
-            <h4><a href="Datenschutz/Datenschutz.jsp">zur Datenschutzerkl‰rung</a></h4>
-            <h4><a href="Datenschutz/Disclaimer.jsp">Disclaimer</a></h4>
-            <br/><br/>
+            <%@ include file="Datenschutz/Impressum.html" %>
             <h3> Meine WebApp-Startseite </h3>
             <p> <a href="/MeetYourCarRoot/StartPage.jsp">/MeetYourCarRoot/StartPage.jsp</a> </p>
             <br/>
