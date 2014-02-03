@@ -11,7 +11,7 @@
    <body>
       <div class="wrap">
          <div class="top"></div>
-         <form method="POST" action="erg_car_search.jsp" name="auswertung_login" class="container">
+         <form method="POST" action="MainCar" name="auswertung_login" class="container">
             <div class="mycss">
                Willkommen auf MeetYourCar<br/>
                <div class="second_h">Finden Sie Ihr Auto!</div>

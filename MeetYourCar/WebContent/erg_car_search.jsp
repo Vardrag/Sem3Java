@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
-<jsp:include page="/MainCar" flush="true"/> <% //lädt die MainCar.java ,  wird momentan nicht benötigt%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,32 +24,30 @@
                   <b>Ihre Suchanfrage</b><br/><br/>
                </div>
             </div>
+            <br/><br/>
             <div class="links">
                Marke<br/>
-               <% String carMarke = request.getParameter("Marke"); %>
-               <%= carMarke %>
+               <%= (String)session.getAttribute("Marke") %>
                <br/><br/>
                Leistung<br/>
-               <% String carLeistung = request.getParameter("Leistung"); %>
-               <%= carLeistung %>
+               <% %>
                <br/><br/>
                Erstzulassung<br/>
-               <% String carErstzulassung = request.getParameter("Erstzulassung"); %>
-               <%= carErstzulassung %>
+               <% %>
                <br/><br/>
             </div>
             <div class="rechts">
                Preis<br/>
-               <% String carPreis = request.getParameter("Preis"); %>
-               <%= carPreis %>
+               <%  %>
+ 
                <br/><br/>
                Kraftstoff<br/>
-               <% String carKraftstoff = request.getParameter("Kraftstoff"); %>
-               <%= carKraftstoff %>
+               <% %>
+               
                <br/><br/>
                Kilometerstand<br/>
-               <% String carKilometerstand = request.getParameter("Kilometerstand"); %>
-               <%= carKilometerstand %>
+               <% %>
+               
                <br/><br/>
             </div>
             <div class="erg_suchanfrage">
