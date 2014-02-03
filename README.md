@@ -14,21 +14,22 @@ Martin:
       
     Car.java
     
-      - Eigenschaften ergänzen / mit Eric abgleichen
+      - Eigenschaften ergänzen (Besitzer, Ort)
+      - ToString-Methoden hinzufügen
       
     User.java
     
-      - Eigenschaften ergänzen / mit Eric abgleichen
+      - Eigenschaften ergänzen
       
       - evtl. Methoden hinzufügen
 
 Eric:
 
-Benutzerprofil Berarbeiten
+    Benutzerprofil Berarbeiten
 
 Clemens:
 
-DATENBANK
+    DATENBANK
 
 
 Gruppenprojekt MeetYourCar 3. Sem
