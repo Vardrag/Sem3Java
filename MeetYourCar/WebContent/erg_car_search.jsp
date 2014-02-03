@@ -30,7 +30,7 @@
                <%= (String)session.getAttribute("Marke") %>
                <br/><br/>
                Leistung<br/>
-               <% %>
+               <%= (String)session.getAttribute("Leistung") %>
                <br/><br/>
                Erstzulassung<br/>
                <% %>
