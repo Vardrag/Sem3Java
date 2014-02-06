@@ -14,8 +14,7 @@ Martin:
       
     Car.java
     
-      - Eigenschaften ergänzen (Besitzer, Ort)
-      - ToString-Methoden hinzufügen
+    - evtl. strUser in Userobjekt ändern 
       
     User.java
     
