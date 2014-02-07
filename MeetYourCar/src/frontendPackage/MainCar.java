@@ -1,29 +1,27 @@
 package frontendPackage;
 
 import java.io.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 import java.net.*;
 
 import ressourcePackage.Car;
 import ressourcePackage.User;
-
+import db_connection.DB_connection;
 
 public class MainCar extends HttpServlet
 {
    static final long serialVersionUID = 1L;
-  
-   Car carObj = new Car(); //Car object anlegen
-   User userObj = new User(); // User object anlegen
    
+   Car carObj = new Car(); //Car obj
+   User userObj = new User(); // User obj
+   DB_connection dbObj = new DB_connection(); //DB connection obj
    
-   //Abfrage per Post
-   
-  public void InsertUser(){
-	   
-   }
-   
-  @Override
+
+ //Abfrage per Post
+@Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	          throws ServletException, IOException {
 	   

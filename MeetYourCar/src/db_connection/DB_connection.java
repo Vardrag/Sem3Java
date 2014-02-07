@@ -8,6 +8,8 @@ import java.sql.Statement;
  
 public class DB_connection
 {
+	public String sql = "SELECT * FROM Customer";
+	
     public DB_connection()
     {
           
@@ -31,7 +33,6 @@ public class DB_connection
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
-      String sql = "SELECT * FROM Customer";
       ResultSet rs = stmt.executeQuery(sql);
   
       while ( rs.next() )
