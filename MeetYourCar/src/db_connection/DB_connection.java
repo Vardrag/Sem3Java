@@ -27,7 +27,7 @@ public class DB_connection
     try
     {
       con = DriverManager.getConnection( 
-              "jdbc:hsqldb:file:MeetYourCar/WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
+              "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
