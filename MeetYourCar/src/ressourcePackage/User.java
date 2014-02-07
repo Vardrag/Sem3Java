@@ -1,4 +1,6 @@
 package ressourcePackage;
+import db_connection.*;
+import java.sql.Date;
 
 public class User {
 //Variablen
@@ -10,9 +12,12 @@ private String strEmail; // Emailadresse des Users
 private String strPasswort; // Passwort des Users
 
 //ab hier Zusatz (keine Pflichtfelder - edit profiloptions)
-private String strAlter; // Alter des Users
+private Date datGeb; // Alter des Users
 private String strTelefon; // TelefonNr des Users
 private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
+
+
+
 
 //private Methoden
 private int loadID()/*lädt ID aus DB nach*/{
@@ -21,32 +26,79 @@ private int loadID()/*lädt ID aus DB nach*/{
 
 
 //Setter / Getter Methoden
-public String getStrVorname() {
+
+public String getUsername() {
+	return strUsername;
+}
+
+public void setUsername(String strUsername) {
+	this.strUsername = strUsername;
+}
+
+public String getPasswort() {
+	return strPasswort;
+}
+
+public void setPasswort(String strPasswort) {
+	this.strPasswort = strPasswort;
+}
+
+public String getUserOrt() {
+	return strStandortCar;
+}
+
+public void setUserOrt(String strStandortCar) {
+	this.strStandortCar = strStandortCar;
+}
+
+public String getTelefon() {
+	return strTelefon;
+}
+
+public void setTelefon(String strTelefon) {
+	this.strTelefon = strTelefon;
+}
+
+public String getVorname() {
 	return strVorname;
 }
-public void setStrVorname(String strVorname) {
+
+public void setVorname(String strVorname) {
 	this.strVorname = strVorname;
 }
-public String getStrNachname() {
+
+public Date getGeburtstag() {
+	return datGeb;
+}
+
+public void setGeburtstag(Date datGeb) {
+	this.datGeb = datGeb;
+}
+
+public String getNachname() {
 	return strNachname;
 }
-public void setStrNachname(String strNachname) {
+
+public void setNachname(String strNachname) {
 	this.strNachname = strNachname;
 }
-public int getIntID() {
+
+public int getID() {
 	return intID;
 }
-public String getStrEmail() {
+
+public String getEmail() {
 	return strEmail;
 }
-public void setStrEmail(String strEmail) {
+
+public void setEmail(String strEmail) {
 	this.strEmail = strEmail;
 }
 
 
 //öffentliche Methoden
 public void addUser()/*fügt neuen User der DB hinzu*/{
-	//User hinzufügen
+	DB_connection dbc = new DB_connection() //User hinzufügen
 	intID = loadID();
 	
 }
