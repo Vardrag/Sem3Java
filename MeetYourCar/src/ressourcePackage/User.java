@@ -18,7 +18,7 @@ private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
 
 
 
-
+//
 //private Methoden
 private int loadID()/*lädt ID aus DB nach*/{
 	return 0; // hier Ergebnis der DBAbfrage einfügen	
