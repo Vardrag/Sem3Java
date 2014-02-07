@@ -96,7 +96,7 @@ public void setEmail(String strEmail) {
 
 //öffentliche Methoden
 public void addUser()/*fügt neuen User der DB hinzu*/{
-	DB_connection dbc = new DB_connection() //User hinzufügen
+	DB_connection dbc = new DB_connection(); //User hinzufügen
 	intID = loadID();
 	
 }
