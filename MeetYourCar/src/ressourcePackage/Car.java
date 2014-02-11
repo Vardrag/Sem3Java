@@ -6,7 +6,7 @@ import java.util.Date;
 
 
 //
-public class Car {
+public class Car implements ICar{
 //Variablen
 public int intKilometerstand; //Kilometerstand des Autos
 public String strAutofirma; //Marke des Autos
@@ -19,8 +19,6 @@ public String strLeistung; //Motorleistung
 public Double dblPreis; //Angebotspreis
 public String strUser;
 public String strOrt;
-
-
 
 //private Methoden
 

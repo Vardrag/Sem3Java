@@ -1,11 +1,11 @@
 package ressourcePackage;
 
 
-public class FunctCar /* Stellt Funktionen für die Arbeit mit Objekten der Klasse "ClsCar" bereit*/ {
+public class  SammlungCar implements ICar {
 
 	
 	
-	public Car[] searchCars(Car referenzCar)/*Sucht eine Gruppe von Autos*/{
+	public Car[] searchCars (Car referenzCar)/*Sucht eine Gruppe von Autos*/{
 
 		StringBuilder strB = new StringBuilder();
 		
