@@ -21,7 +21,8 @@
                <div class="login">
                   Besitzen Sie schon ein Konto?<br/>
                   <a href="Login.jsp" class="AllButtons">Login</a>
-                  <a href="#" class="AllButtons">Logout</a>
+                  <a href="#" class="AllButtons">Logout</a><br/>
+                  <a href="user_profil.jsp" class="AllButtons">Ihr Profil</a>
                </div>
                <div class="anmeldung">
                   Noch kein Benutzerkonto?<br/>

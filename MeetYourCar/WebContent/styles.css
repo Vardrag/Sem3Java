@@ -3,7 +3,9 @@ a{
 color: #3B6EBF;
 text-decoration: none;
 }
-
+.test{
+	width: 300px; 
+}
 .mycss
 {
 padding: 15px 20px 0 20px;
