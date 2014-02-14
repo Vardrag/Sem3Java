@@ -97,15 +97,7 @@
                </select>
             </div>
             <br/><br/>
-            Sonstiges
-            <br/>
-            <select name="sonstiges" multiple size="3">
-               <option value="test1">test1</option>
-               <option value="test2">test2</option>
-               <option value="test3">test3</option>
-               <option value="test4">test4</option>
-            </select>
-            <br/><br/>
+         
             <input type="submit" value="MeetYourCar" class="suchen"/><br/><br/>
             <img src="pics/hr.jpg" class="btw">
          </form>

@@ -57,10 +57,10 @@
             </div>
              <div>
                Passwort <br/>
-               <input class="textbox" type="password" name="edit_telefon">
+               <input class="textbox" type="password" name="edit_telefon" value="passwort" onfocus="this.value = ''">
                <br/><br/>
                Passwort bestätigen <br/>
-               <input class="textbox" type="password" name="edit_telefon">
+               <input class="textbox" type="password" name="edit_telefon" value="passwort" onfocus="this.value = ''">
                <br/><br/>
         	</div>
         	<div class="test">
