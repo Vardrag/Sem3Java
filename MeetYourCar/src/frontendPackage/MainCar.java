@@ -24,8 +24,14 @@ public class MainCar extends HttpServlet
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	          throws ServletException, IOException {	
 	   
-	String form = request.getParameter("auswertung_login");
-	if( form != null){
+	String form_index = request.getParameter("auswertung_login");
+	String form_edit_user_profil = "";
+	String form_login = "";
+	String form_registration = ""; 
+	
+	
+	
+	if( form_index != null){
 	   Object strAutofirma = request.getParameter("Marke");
 	   Object strLeistung = request.getParameter("Leistung");
 	   
@@ -50,7 +56,20 @@ public class MainCar extends HttpServlet
 			   getRequestDispatcher("/erg_car_search.jsp");
 	   disp.forward(request, response);
 	}
-	 
+	
+	
+	if( form_edit_user_profil != null){
+		
+	}
+	
+	if( form_login != null){
+		
+	}
+	
+	if( form_registration != null){
+		
+	}
+	
 	   }  
 }
 
