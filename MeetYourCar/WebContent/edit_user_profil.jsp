@@ -64,7 +64,7 @@
                <br/><br/>
         	</div>
         	<div class="test">
-            <input type="submit" value="übernehmen" class="suchen"/>oder <a href="/MeetYourCarRoot/index.jsp">zur Startseite</a><br/><br/></div>
+            <input type="submit" value="übernehmen" class="suchen"/> oder <a href="/MeetYourCarRoot/index.jsp">zur Startseite</a><br/><br/></div>
             <img src="pics/hr.jpg" class="btw">
          </form>
          <div class="footer">
