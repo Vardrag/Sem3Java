@@ -11,7 +11,8 @@
    <body>
       <div class="wrap">
          <div class="top"></div>
-         <form method="POST" action="#" name="edit_user_profil" class="container">
+         <form method="POST" action="MainCar" name="edit_user_profil" class="container">
+         <input type="hidden" name="edit_user_profil">
             <div class="mycss">
                Ihr Benutzerprofil<br/>
                <div class="second_h">Jetzt Bearbeiten</div>

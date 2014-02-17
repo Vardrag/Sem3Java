@@ -18,13 +18,14 @@ public class MainCar extends HttpServlet
    Car carObj = new Car(); //Car obj
    User userObj = new User(); // User obj
    DB_connection dbObj = new DB_connection(); //DB connection obj
-   
 
  //Abfrage per Post
 @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
-	          throws ServletException, IOException {
+	          throws ServletException, IOException {	
 	   
+	String form = request.getParameter("auswertung_login");
+	if( form != null){
 	   Object strAutofirma = request.getParameter("Marke");
 	   Object strLeistung = request.getParameter("Leistung");
 	   
@@ -42,17 +43,13 @@ public class MainCar extends HttpServlet
 	   HttpSession Leistung = request.getSession();
 	   Leistung.setAttribute("Leistung", ausgabe_Leistung);
 	   
-	  
-	   
-	   
-	   
 	   
 	   //JSP-Aufruf
 	   RequestDispatcher disp = 
 			   getServletContext().
 			   getRequestDispatcher("/erg_car_search.jsp");
 	   disp.forward(request, response);
-	      
+	}
 	 
 	   }  
 }

@@ -11,7 +11,8 @@
    <body>
       <div class="wrap">
          <div class="top"></div>
-         <form method="POST" action="#" name="auswertung_login" class="container">
+         <form method="POST" action="#" name="login_user" class="container">
+         <input type="hidden" name="login_user">
             <div class="mycss">
                Ihr persönliches Profil-Login<br/>
                <div class="second_h">Login und direkt Angebote erstellen!</div>
