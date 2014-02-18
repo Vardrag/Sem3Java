@@ -33,20 +33,20 @@
                <%= (String)session.getAttribute("Leistung") %>
                <br/><br/>
                Erstzulassung<br/>
-               <% %>
+               <%= (String)session.getAttribute("Erstzulassung") %>
                <br/><br/>
             </div>
             <div class="rechts">
                Preis<br/>
-               <%  %>
+               <%= (String)session.getAttribute("Preis") %>
  
                <br/><br/>
                Kraftstoff<br/>
-               <% %>
+               <%= (String)session.getAttribute("Kraftstoff") %>
                
                <br/><br/>
                Kilometerstand<br/>
-               <% %>
+               <%= (String)session.getAttribute("Kilometerstand")%>
                
                <br/><br/>
             </div>
