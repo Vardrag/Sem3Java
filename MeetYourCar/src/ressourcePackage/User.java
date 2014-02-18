@@ -1,6 +1,8 @@
 package ressourcePackage;
 import db_connection.*;
+
 import java.sql.Date;
+import java.sql.ResultSet;
 
 public class User {
 //Variablen
@@ -16,14 +18,16 @@ private String strPasswort; // Passwort des Users
 private Date datGeb; // Alter des Users
 private String strTelefon; // TelefonNr des Users
 private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
-private int strPLZ;
-private String strStasse;
-
+private String strPLZ;
+private String strStrasse;
+private DB_connection dbc;
+private String sqlArg;
+private ResultSet rstTemp;
 
 
 //private Methoden
-private int loadID()/*lädt ID aus DB nach*/{
-	return 0; // hier Ergebnis der DBAbfrage einfügen	
+private int loadID()/*lï¿½dt ID aus DB nach*/{
+	return 0; // hier Ergebnis der DBAbfrage einfï¿½gen	
 }
 
 
@@ -98,9 +102,10 @@ public void setEmail(String strEmail) {
 }
 
 
-//öffentliche Methoden
-public void addUser()/*fügt neuen User der DB hinzu*/{
-	DB_connection dbc = new DB_connection(); //User hinzufügen
+//ï¿½ffentliche Methoden
+public void addUser()/*fï¿½gt neuen User der DB hinzu*/{
+    sqlArg = "Select ";
+	dbc.main(sqlArg); //User hinzufuegen
 	intID = loadID();
 	
 }
@@ -109,11 +114,31 @@ public void updateUser/*Sucht DBEintrag nach ID und updatet alle anderen Felder*
 
 }
 
-public int Login(){
-	return 0;
+public boolean login(){
+    sqlArg = "Select * WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';"; 
+	rstTemp = dbc.main(sqlArg); //User Abfrage
+	boolean boolTemp = rstTemp.last();
+	if (boolTemp = false){ 
+		return false;
+	}
+	else{													//Ausfuellen des Objekts Feldnamen anpassen
+		intID = rstTemp.getInt("User_ID");
+		strAnrede = rstTemp.getString("User_Anrede");
+		strVorname = rstTemp.getString("User_Vorname");
+		strNachname = rstTemp.getString("User_Nachname");
+		strEmail = rstTemp.getString("User_Email");
+		datGeb = rstTemp.getDate("User_Geburtstag");
+		strTelefon = rstTemp.getString("User_Telefon");
+		strStandortCar = rstTemp.getString("User_Wohnort");
+		strPLZ = rstTemp.getString("User_PLZ");
+		strStrasse = rstTemp.getString("User_Strasse");
+		return true;
+	}
+	
 }
 
-public void Register(){
+public boolean register(){
+	return false;
 	
 }
 
