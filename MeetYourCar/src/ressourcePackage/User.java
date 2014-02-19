@@ -4,6 +4,8 @@ import db_connection.*;
 import java.sql.Date;
 import java.sql.ResultSet;
 
+import org.hsqldb.result.Result;
+
 public class User {
 //Variablen
 private int intID; //ID des Users (autoFeld der DB)
@@ -20,14 +22,14 @@ private String strTelefon; // TelefonNr des Users
 private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
 private String strPLZ;
 private String strStrasse;
-private DB_connection dbc;
+private DB_Zugriff dbc;
 private String sqlArg;
 private ResultSet rstTemp;
 
 
 //private Methoden
-private int loadID()/*l�dt ID aus DB nach*/{
-	return 0; // hier Ergebnis der DBAbfrage einf�gen	
+private int loadID()/*laedt ID aus DB nach*/{
+	return 0; // hier Ergebnis der DBAbfrage einfuegen	
 }
 
 
@@ -102,10 +104,10 @@ public void setEmail(String strEmail) {
 }
 
 
-//�ffentliche Methoden
-public void addUser()/*f�gt neuen User der DB hinzu*/{
+//oeffentliche Methoden
+public void addUser()/*fuegt neuen User der DB hinzu*/{
     sqlArg = "Select ";
-	dbc.main(sqlArg); //User hinzufuegen
+	dbc.runSQL(sqlArg); //User hinzufuegen
 	intID = loadID();
 	
 }
@@ -115,29 +117,30 @@ public void updateUser/*Sucht DBEintrag nach ID und updatet alle anderen Felder*
 }
 
 public boolean login(){
-    sqlArg = "Select * WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';"; 
-	rstTemp = dbc.main(sqlArg); //User Abfrage
+    sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';"; 
+    rstTemp = dbc.runSQL(sqlArg); //User Abfrage
 	boolean boolTemp = rstTemp.last();
 	if (boolTemp = false){ 
 		return false;
 	}
 	else{													//Ausfuellen des Objekts Feldnamen anpassen
-		intID = rstTemp.getInt("User_ID");
-		strAnrede = rstTemp.getString("User_Anrede");
-		strVorname = rstTemp.getString("User_Vorname");
-		strNachname = rstTemp.getString("User_Nachname");
-		strEmail = rstTemp.getString("User_Email");
-		datGeb = rstTemp.getDate("User_Geburtstag");
-		strTelefon = rstTemp.getString("User_Telefon");
-		strStandortCar = rstTemp.getString("User_Wohnort");
-		strPLZ = rstTemp.getString("User_PLZ");
-		strStrasse = rstTemp.getString("User_Strasse");
+		intID = rstTemp.getInt("KID");
+		strAnrede = rstTemp.getString("Anrede");
+		strVorname = rstTemp.getString("Vorname");
+		strNachname = rstTemp.getString("Name");
+		strEmail = rstTemp.getString("Email");
+		datGeb = rstTemp.getDate("Geburtstag");
+		strTelefon = rstTemp.getString("Telefon");
+		strStandortCar = rstTemp.getString("Ort");
+		strPLZ = rstTemp.getString("PLZ");
+		strStrasse = rstTemp.getString("Strasse");
 		return true;
 	}
 	
 }
 
 public boolean register(){
+	sqlArg = "INSERT INTO Kunden (Anrede, Name, Vorname) VALUES (";
 	return false;
 	
 }

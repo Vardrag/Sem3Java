@@ -65,9 +65,5 @@ public class DB_connection
       }
     }
     }
-     
-    public static void main(String[] args)
-    {
-        new DB_connection();
-    }
+
 }
