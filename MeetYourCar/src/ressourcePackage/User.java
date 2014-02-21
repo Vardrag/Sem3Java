@@ -3,7 +3,9 @@ import db_connection.*;
 
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
 import org.hsqldb.result.Result;
 
 public class User {
@@ -25,6 +27,7 @@ private String strStrasse;
 private DB_Zugriff dbc;
 private String sqlArg;
 private ResultSet rstTemp;
+
 
 
 //private Methoden
@@ -105,26 +108,35 @@ public void setEmail(String strEmail) {
 
 
 //oeffentliche Methoden
-public void addUser()/*fuegt neuen User der DB hinzu*/{
-    sqlArg = "Select ";
-	dbc.runSQL(sqlArg); //User hinzufuegen
-	intID = loadID();
 	
+public boolean update/*Sucht DBEintrag nach ID und updatet alle anderen Felder*/(String strCheckPW){
+StringBuilder sb = new StringBuilder();
+if (strCheckPW == strPasswort){
+sb.append("UPDATE Kunden SET ");
+sb.append("Anrede = '"+strAnrede +"', "); //Anrede Value
+sb.append("Name = '"+strNachname +"', "); //Name Value
+sb.append("Vorname = '"+strVorname +"', "); //Vorname Value
+sb.append("Strasse = '"+strStrasse +"', "); //Strasse Value
+sb.append("PLZ = '"+strPLZ +"', "); //PLZ Value
+sb.append("Ort = '"+strStandortCar +"', "); //Ort Value
+sb.append("Email = '"+strEmail +"', "); //Email Value
+sb.append("Telefon = '"+strTelefon +"', "); //Telefon Value
+sb.append("Passwort = '"+strPasswort +"', "); //Passwort Value
+sb.append("Geburtstag = '"+datGeb +"') "); //Geburtstag Value
+sb.append("WHERE KID = " + intID + ";");
+dbc.runSQL(sb.toString());
+return true;
 }
-
-public void updateUser/*Sucht DBEintrag nach ID und updatet alle anderen Felder*/(){
-
+else
+	return false;
 }
 
 public boolean login(){
-    sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';"; 
-    rstTemp = dbc.runSQL(sqlArg); //User Abfrage
-	boolean boolTemp = rstTemp.last();
-	if (boolTemp = false){ 
-		return false;
-	}
-	else{													//Ausfuellen des Objekts Feldnamen anpassen
-		intID = rstTemp.getInt("KID");
+    sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';";    
+	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
+		rstTemp = dbc.runSQL(sqlArg); //User Abfrage
+		rstTemp.first();
+    	intID = rstTemp.getInt("KID");
 		strAnrede = rstTemp.getString("Anrede");
 		strVorname = rstTemp.getString("Vorname");
 		strNachname = rstTemp.getString("Name");
@@ -134,18 +146,39 @@ public boolean login(){
 		strStandortCar = rstTemp.getString("Ort");
 		strPLZ = rstTemp.getString("PLZ");
 		strStrasse = rstTemp.getString("Strasse");
-		return true;
+	    return true;
+		}
+	catch (SQLException elogin)
+	{
+		return false;
 	}
-	
 }
+												//Ausfuellen des Objekts Feldnamen anpassen
+
 
 public boolean register(){
-	sqlArg = "INSERT INTO Kunden (Anrede, Name, Vorname) VALUES (";
-	return false;
-	
-}
+	StringBuilder sb = new StringBuilder();
+	sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Strasse, PLZ, Ort, Email, Telefon, Benutzername, Passwort, Geburtstag) VALUES (");
+	sb.append("'"+strAnrede +"', "); //Anrede Value
+	sb.append("'"+strNachname +"', "); //Name Value
+	sb.append("'"+strVorname +"', "); //Vorname Value
+	sb.append("'"+strStrasse +"', "); //Strasse Value
+	sb.append("'"+strPLZ +"', "); //PLZ Value
+	sb.append("'"+strStandortCar +"', "); //Ort Value
+	sb.append("'"+strEmail +"', "); //Email Value
+	sb.append("'"+strTelefon +"', "); //Telefon Value
+	sb.append("'"+strUsername +"', "); //Benutzername Value
+	sb.append("'"+strPasswort +"', "); //Passwort Value
+	sb.append("'"+datGeb +"'); "); //Geburtstag Value
 
-public void ChangeUserData(){
+	try{ //Datenbank springt bei bestehendem Username zum Catch-Block
+	rstTemp = dbc.runSQL(sb.toString());
+    rstTemp.first();  
+    return true;
+	} 
+	catch (SQLException eregister){
+	return false;	
+	}
 	
 }
 
