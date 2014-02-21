@@ -5,8 +5,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.jasper.tagplugins.jstl.core.If;
-import org.hsqldb.result.Result;
 
 public class User {
 //Variablen
@@ -31,9 +29,7 @@ private ResultSet rstTemp;
 
 
 //private Methoden
-private int loadID()/*laedt ID aus DB nach*/{
-	return 0; // hier Ergebnis der DBAbfrage einfuegen	
-}
+
 
 
 //Setter / Getter Methoden
@@ -109,7 +105,7 @@ public void setEmail(String strEmail) {
 
 //oeffentliche Methoden
 	
-public boolean update/*Sucht DBEintrag nach ID und updatet alle anderen Felder*/(String strCheckPW){
+public boolean update/*Sucht DBEintrag nach ID und prüft Passwortwiederholung und updatet alle anderen Felder ausser Username*/(String strCheckPW){
 StringBuilder sb = new StringBuilder();
 if (strCheckPW == strPasswort){
 sb.append("UPDATE Kunden SET ");
@@ -153,7 +149,7 @@ public boolean login(){
 		return false;
 	}
 }
-												//Ausfuellen des Objekts Feldnamen anpassen
+		
 
 
 public boolean register(){
