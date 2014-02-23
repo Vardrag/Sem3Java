@@ -8,7 +8,6 @@ import java.sql.Statement;
  
 public class DB_connection
 {
-	public String sql = "SELECT * FROM Customer";
 	
     public ResultSet DB_connection(String strSql) throws SQLException
     {
@@ -31,7 +30,7 @@ public class DB_connection
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
-      ResultSet rs = stmt.executeQuery(sql);
+      ResultSet rs = stmt.executeQuery(strSql);
         
       // Statement schlie�en
       stmt.close();

@@ -24,10 +24,46 @@ public class MainCar extends HttpServlet
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	          throws ServletException, IOException {	
 	   
+	String form_registration = request.getParameter("auswertung_registration"); 
 	String form_index = request.getParameter("auswertung_login");
 	String form_edit_user_profil = "";
 	String form_login = "";
-	String form_registration = ""; 
+	
+	
+	
+	
+	if( form_registration != null){
+		
+		String vorname = request.getParameter("vorname");
+		String nachname = request.getParameter("nachname");
+		String benutzername = request.getParameter("benutzername");
+		
+		userObj.setVorname(vorname);
+		userObj.setNachname(nachname);
+		userObj.setUsername(benutzername);
+		
+		
+		boolean temp = userObj.register();
+		
+		
+		RequestDispatcher disp = 
+				   getServletContext().
+				   getRequestDispatcher("/registration.jsp");
+		   disp.forward(request, response);
+		
+		
+		/*if(Temp == false){
+			RequestDispatcher disp = 
+					   getServletContext().
+					   getRequestDispatcher("/registration.jsp");
+			   disp.forward(request, response);
+		}else{
+			RequestDispatcher disp = 
+					   getServletContext().
+					   getRequestDispatcher("/index.jsp");
+			   disp.forward(request, response);
+		}*/
+	}
 	
 	
 	
@@ -105,9 +141,7 @@ public class MainCar extends HttpServlet
 		
 	}
 	
-	if( form_registration != null){
-		
-	}
+	
 	
 	   }  
 }
