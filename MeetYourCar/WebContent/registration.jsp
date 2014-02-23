@@ -13,8 +13,8 @@
    <body>
       <div class="wrap">
          <div class="top"></div>
-         <form method="POST" action="#" name="auswertung_login" class="container">
-         <input type="hidden" name="auswertung_login">
+         <form method="POST" action="MainCar" name="auswertung_registration" class="container">
+         <input type="hidden" name="auswertung_registration">
             <div class="mycss">
                Anmeldung<br/>
                <div class="second_h">Nur wenige Schritte!</div>
@@ -34,18 +34,18 @@
                   </select>
                </p>
                <p>Vorname*<br/>
-                  <input class="textbox"type="text" name="vorname"> 
+                  <input class="textbox" type="text" name="vorname"> 
                </p>
                <p>Nachname*<br/>
-                  <input class="textbox"type="text" name="nachname"> 
+                  <input class="textbox" type="text" name="nachname"> 
                </p>
                <p>Benutzername*<br/>
-                  <input class="textbox"type="text" name="nachname"> 
+                  <input class="textbox" type="text" name="benutzername"> 
                </p>
             </div>
             <div class="rechts">
                <p>E-Mail*<br/>
-                  <input class="textbox"type="text" name="email">
+                  <input class="textbox" type="text" name="email">
                </p>
                <p>E-Mail Bestätigen*<br/>
                   <input class="textbox" type="password" name="passwort">
