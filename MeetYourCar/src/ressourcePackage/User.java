@@ -1,6 +1,7 @@
 package ressourcePackage;
 import db_connection.*;
 
+import java.security.*;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,6 +35,21 @@ private ResultSet rstTemp;
 
 //Setter / Getter Methoden
 
+public String getStrasse() {
+	return strStrasse;
+}
+
+public void setStrasse(String strStrasse) {
+	this.strStrasse = strStrasse;
+}
+
+public String getAnrede() {
+	return strAnrede;
+}
+
+public void setAnrede(String strAnrede) {
+	this.strAnrede = strAnrede;
+}
 public String getUsername() {
 	return strUsername;
 }
@@ -42,12 +58,11 @@ public void setUsername(String strUsername) {
 	this.strUsername = strUsername;
 }
 
-public String getPasswort() {
-	return strPasswort;
-}
+public void setPasswort(String strPasswort) throws NoSuchAlgorithmException {
 
-public void setPasswort(String strPasswort) {
-	this.strPasswort = strPasswort;
+	MessageDigest md = MessageDigest.getInstance( "SHA" ); 
+	md.update( strPasswort.getBytes() );
+	this.strPasswort = md.digest().toString();
 }
 
 public String getUserOrt() {
@@ -158,21 +173,22 @@ public boolean login(){
 
 
 public boolean register(){
-	StringBuilder sb = new StringBuilder();
-	sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Strasse, PLZ, Ort, Email, Telefon, Benutzername, Passwort, Geburtstag) VALUES (");
-	sb.append("'"+strAnrede +"', "); //Anrede Value
-	sb.append("'"+strNachname +"', "); //Name Value
-	sb.append("'"+strVorname +"', "); //Vorname Value
-	sb.append("'"+strStrasse +"', "); //Strasse Value
-	sb.append("'"+strPLZ +"', "); //PLZ Value
-	sb.append("'"+strStandortCar +"', "); //Ort Value
-	sb.append("'"+strEmail +"', "); //Email Value
-	sb.append("'"+strTelefon +"', "); //Telefon Value
-	sb.append("'"+strUsername +"', "); //Benutzername Value
-	sb.append("'"+strPasswort +"', "); //Passwort Value
-	sb.append("'"+datGeb +"'); "); //Geburtstag Value
+
 
 	try{ //Datenbank springt bei bestehendem Username zum Catch-Block
+		StringBuilder sb = new StringBuilder();
+		sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Strasse, PLZ, Ort, Email, Telefon, Benutzername, Passwort, Geburtstag) VALUES (");
+		sb.append("'"+strAnrede +"', "); //Anrede Value
+		sb.append("'"+strNachname +"', "); //Name Value
+		sb.append("'"+strVorname +"', "); //Vorname Value
+		sb.append("'"+strStrasse +"', "); //Strasse Value
+		sb.append("'"+strPLZ +"', "); //PLZ Value
+		sb.append("'"+strStandortCar +"', "); //Ort Value
+		sb.append("'"+strEmail +"', "); //Email Value
+		sb.append("'"+strTelefon +"', "); //Telefon Value
+		sb.append("'"+strUsername +"', "); //Benutzername Value
+		sb.append("'"+strPasswort +"', "); //Passwort Value
+		sb.append("'"+datGeb +"'); "); //Geburtstag Value
 	rstTemp = dbc.DB_connection(sb.toString());
     rstTemp.first();  
     return true;
@@ -180,7 +196,6 @@ public boolean register(){
 	catch (SQLException eregister){
 	return false;	
 	}
-	
 }
 
 }

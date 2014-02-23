@@ -23,7 +23,8 @@ public String strOrt;
 
 //�ffentliche Methoden
 public void addCar()/*Objekt zu der Tabelle "Angebot" hinzuf�gen; gibt SQL-String weiter*/{
-
+StringBuilder sb = new StringBuilder();
+sb.append("Insert into Fahrzeuge (");
 }
 
 public void removeCar()/*Objekt aus der Tabelle entfernen; gibt SQL-String weiter*/{
