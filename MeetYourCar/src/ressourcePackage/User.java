@@ -135,13 +135,10 @@ sb.append("Telefon = '"+strTelefon +"', "); //Telefon Value
 sb.append("Passwort = '"+strPasswort +"', "); //Passwort Value
 sb.append("Geburtstag = '"+datGeb +"') "); //Geburtstag Value
 sb.append("WHERE KID = " + intID + ";");
-try{
-rstTemp = dbc.DB_connection(sb.toString());
+
+	dbc.main(sb.toString());
+	rstTemp = dbc.rs;
 return true;
-}
-catch (SQLException eupdate){
-return false;
-}
 }
 else
 	return false;
@@ -150,7 +147,9 @@ else
 public boolean login(){
     sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';";    
 	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
-		rstTemp = dbc.DB_connection(sqlArg); //User Abfrage
+		dbc.main(sqlArg);
+		rstTemp = dbc.rs;
+		//User Abfrage
 		rstTemp.first();
     	intID = rstTemp.getInt("KID");
 		strAnrede = rstTemp.getString("Anrede");
@@ -182,7 +181,8 @@ public boolean register(){
 		sb.append("'"+strEmail +"', "); //Email Value
 		sb.append("'"+strUsername +"', "); //Benutzername Value
 		sb.append("'"+strPasswort +"', "); //Passwort Value
-	rstTemp = dbc.DB_connection(sb.toString());
+		dbc.main(sb.toString());
+		rstTemp = dbc.rs;
     rstTemp.first();  
     return true;
 	} 

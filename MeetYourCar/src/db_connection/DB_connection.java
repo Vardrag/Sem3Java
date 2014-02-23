@@ -8,7 +8,8 @@ import java.sql.Statement;
  
 public class DB_connection
 {
-    public DB_connection()
+	public ResultSet rs;
+    public DB_connection(String sql)
     {
           
     try
@@ -31,8 +32,8 @@ public class DB_connection
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
-      String sql = "SELECT * FROM Kunden";
-      ResultSet rs = stmt.executeQuery(sql);
+
+      rs = stmt.executeQuery(sql);
   
       while ( rs.next() )
       {
@@ -42,10 +43,10 @@ public class DB_connection
         System.out.println(id + ", " + firstName + " " + lastName);
       }
        
-      // Resultset schließen
+      // Resultset schlieï¿½en
       rs.close();
   
-      // Statement schließen
+      // Statement schlieï¿½en
       stmt.close();
     }
     catch ( SQLException e )
@@ -65,8 +66,9 @@ public class DB_connection
     }
     }
      
-    public static void main(String[] args)
+   public static void main(String args)
     {
-        new DB_connection();
+        new DB_connection(args);
     }
+
 }
