@@ -181,7 +181,7 @@ public boolean register(){
 		sb.append("'"+strEmail +"', "); //Email Value
 		sb.append("'"+strUsername +"', "); //Benutzername Value
 		sb.append("'"+strPasswort +"', "); //Passwort Value
-		dbc.main(sb.toString());
+		dbc = new DB_connection(sb.toString());
 		rstTemp = dbc.rs;
     rstTemp.first();  
     return true;
