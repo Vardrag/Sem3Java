@@ -35,6 +35,14 @@ private ResultSet rstTemp;
 
 //Setter / Getter Methoden
 
+public String getStrasse() {
+	return strStrasse;
+}
+
+public void setStrasse(String strStrasse) {
+	this.strStrasse = strStrasse;
+}
+
 public String getAnrede() {
 	return strAnrede;
 }
@@ -188,7 +196,6 @@ public boolean register(){
 	catch (SQLException eregister){
 	return false;	
 	}
-	
 }
 
 }
