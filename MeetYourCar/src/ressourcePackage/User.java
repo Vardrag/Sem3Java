@@ -173,22 +173,15 @@ public boolean login(){
 
 
 public boolean register(){
-
-
 	try{ //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
-		sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Strasse, PLZ, Ort, Email, Telefon, Benutzername, Passwort, Geburtstag) VALUES (");
+		sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Email, Benutzername, Passwort) VALUES (");
 		sb.append("'"+strAnrede +"', "); //Anrede Value
 		sb.append("'"+strNachname +"', "); //Name Value
 		sb.append("'"+strVorname +"', "); //Vorname Value
-		sb.append("'"+strStrasse +"', "); //Strasse Value
-		sb.append("'"+strPLZ +"', "); //PLZ Value
-		sb.append("'"+strStandortCar +"', "); //Ort Value
 		sb.append("'"+strEmail +"', "); //Email Value
-		sb.append("'"+strTelefon +"', "); //Telefon Value
 		sb.append("'"+strUsername +"', "); //Benutzername Value
 		sb.append("'"+strPasswort +"', "); //Passwort Value
-		sb.append("'"+datGeb +"'); "); //Geburtstag Value
 	rstTemp = dbc.DB_connection(sb.toString());
     rstTemp.first();  
     return true;
