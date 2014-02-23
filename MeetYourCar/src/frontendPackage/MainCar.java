@@ -42,7 +42,6 @@ public class MainCar extends HttpServlet
 		userObj.setNachname(nachname);
 		userObj.setUsername(benutzername);
 		
-		
 		boolean temp = userObj.register();
 		
 		
