@@ -34,13 +34,19 @@ public class MainCar extends HttpServlet
 	
 	if( form_registration != null){
 		
+		String anrede = request.getParameter("ges");
 		String vorname = request.getParameter("vorname");
 		String nachname = request.getParameter("nachname");
 		String benutzername = request.getParameter("benutzername");
+		String email = request.getParameter("email");
+		String passwort = request.getParameter("passwort");
 		
+		userObj.setAnrede(anrede);
 		userObj.setVorname(vorname);
 		userObj.setNachname(nachname);
 		userObj.setUsername(benutzername);
+		userObj.setEmail(email);
+
 		
 		boolean temp = userObj.register();
 		

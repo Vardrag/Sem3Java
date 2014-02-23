@@ -48,7 +48,7 @@
                   <input class="textbox" type="text" name="email">
                </p>
                <p>E-Mail Bestätigen*<br/>
-                  <input class="textbox" type="password" name="passwort">
+                  <input class="textbox" type="text" name="email">
                </p>
                <p>Passwort*<br/>
                   <input class="textbox" type="password" name="passwort">
