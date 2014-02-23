@@ -22,7 +22,7 @@ private String strTelefon; // TelefonNr des Users
 private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
 private String strPLZ;
 private String strStrasse;
-private DB_Zugriff dbc;
+private DB_connection dbc;
 private String sqlArg;
 private ResultSet rstTemp;
 
@@ -105,7 +105,7 @@ public void setEmail(String strEmail) {
 
 //oeffentliche Methoden
 	
-public boolean update/*Sucht DBEintrag nach ID und prüft Passwortwiederholung und updatet alle anderen Felder ausser Username*/(String strCheckPW){
+public boolean update/*Sucht DBEintrag nach ID und prï¿½ft Passwortwiederholung und updatet alle anderen Felder ausser Username*/(String strCheckPW){
 StringBuilder sb = new StringBuilder();
 if (strCheckPW == strPasswort){
 sb.append("UPDATE Kunden SET ");
@@ -120,8 +120,13 @@ sb.append("Telefon = '"+strTelefon +"', "); //Telefon Value
 sb.append("Passwort = '"+strPasswort +"', "); //Passwort Value
 sb.append("Geburtstag = '"+datGeb +"') "); //Geburtstag Value
 sb.append("WHERE KID = " + intID + ";");
-dbc.runSQL(sb.toString());
+try{
+rstTemp = dbc.DB_connection(sb.toString());
 return true;
+}
+catch (SQLException eupdate){
+return false;
+}
 }
 else
 	return false;
@@ -130,7 +135,7 @@ else
 public boolean login(){
     sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';";    
 	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
-		rstTemp = dbc.runSQL(sqlArg); //User Abfrage
+		rstTemp = dbc.DB_connection(sqlArg); //User Abfrage
 		rstTemp.first();
     	intID = rstTemp.getInt("KID");
 		strAnrede = rstTemp.getString("Anrede");
@@ -168,7 +173,7 @@ public boolean register(){
 	sb.append("'"+datGeb +"'); "); //Geburtstag Value
 
 	try{ //Datenbank springt bei bestehendem Username zum Catch-Block
-	rstTemp = dbc.runSQL(sb.toString());
+	rstTemp = dbc.DB_connection(sb.toString());
     rstTemp.first();  
     return true;
 	} 

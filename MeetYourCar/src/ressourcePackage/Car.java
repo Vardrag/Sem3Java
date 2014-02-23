@@ -1,7 +1,5 @@
 package ressourcePackage;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -25,7 +23,7 @@ public String strOrt;
 
 //�ffentliche Methoden
 public void addCar()/*Objekt zu der Tabelle "Angebot" hinzuf�gen; gibt SQL-String weiter*/{
-	strSQLarg = "Insert into Angebot VALUES Angebot.Farbe ="  + strFarbe + ", Angebot.Herrsteller = ";
+
 }
 
 public void removeCar()/*Objekt aus der Tabelle entfernen; gibt SQL-String weiter*/{

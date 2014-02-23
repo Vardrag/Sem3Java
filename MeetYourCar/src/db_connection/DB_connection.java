@@ -10,7 +10,7 @@ public class DB_connection
 {
 	public String sql = "SELECT * FROM Customer";
 	
-    public DB_connection()
+    public ResultSet DB_connection(String strSql) throws SQLException
     {
           
     try
@@ -21,39 +21,21 @@ public class DB_connection
     catch ( ClassNotFoundException e )
     {
       System.err.println( "Treiberklasse nicht gefunden!" );
-      return;
+      return null;
     }
   
     Connection con = null;
-  
-    try
-    {
+    
       con = DriverManager.getConnection( 
               "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
       ResultSet rs = stmt.executeQuery(sql);
-  
-      while ( rs.next() )
-      {
-        String id = rs.getString(1);
-        String firstName = rs.getString(2);
-        String lastName = rs.getString(3);
-        System.out.println(id + ", " + firstName + " " + lastName);
-      }
-       
-      // Resultset schließen
-      rs.close();
-  
-      // Statement schließen
+        
+      // Statement schlieï¿½en
       stmt.close();
-    }
-    catch ( SQLException e )
-    {
-      e.printStackTrace();
-    }
-    finally
+
     {
       if ( con != null )
       {
@@ -64,6 +46,7 @@ public class DB_connection
             }
       }
     }
+    return rs;
     }
 
 }
