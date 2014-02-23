@@ -174,13 +174,13 @@ public boolean login(){
 public boolean register(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
-		sb.append ("-->>>TEST<<<-- ; INSERT INTO Public.Kunden (Anrede, Name, Vorname, Email, Benutzername, Passwort) VALUES (");
+		sb.append ("-->>>TEST<<<-- ; INSERT INTO PUBLIC.KUNDEN (ANREDE, NAME, VORNAME, EMAIL, BENUTZERNAME, PASSWORT) VALUES (");
 		sb.append("'"+strAnrede +"', "); //Anrede Value
 		sb.append("'"+strNachname +"', "); //Name Value
 		sb.append("'"+strVorname +"', "); //Vorname Value
 		sb.append("'"+strEmail +"', "); //Email Value
 		sb.append("'"+strUsername +"', "); //Benutzername Value
-		sb.append("'"+strPasswort +"' "); //Passwort Value
+		sb.append("'"+strPasswort +"' )" ); //Passwort Value
 		dbc = new DB_connection(sb.toString());
 		rstTemp = dbc.rs;
  
