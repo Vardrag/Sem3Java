@@ -17,7 +17,6 @@ public class MainCar extends HttpServlet
    
    Car carObj = new Car(); //Car obj
    User userObj = new User(); // User obj
-   DB_connection dbObj = new DB_connection(); //DB connection obj
 
  //Abfrage per Post
 @Override
