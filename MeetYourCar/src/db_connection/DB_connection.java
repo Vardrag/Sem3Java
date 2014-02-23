@@ -8,33 +8,51 @@ import java.sql.Statement;
  
 public class DB_connection
 {
-	
-    public ResultSet DB_connection(String strSql) throws SQLException
+    public DB_connection()
     {
           
     try
     {
         // Treiberklasse laden
-      Class.forName( "org.hsqldb.jdbc.JDBCDriver" );
+    	Class.forName( "org.hsqldb.jdbc.JDBCDriver" );
     }
     catch ( ClassNotFoundException e )
     {
       System.err.println( "Treiberklasse nicht gefunden!" );
-      return null;
+      return;
     }
   
     Connection con = null;
-    
+  
+    try
+    {
       con = DriverManager.getConnection( 
-              "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
+    		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
       Statement stmt = con.createStatement();
   
       // Alle Kunden ausgeben
-      ResultSet rs = stmt.executeQuery(strSql);
-        
-      // Statement schlieï¿½en
+      String sql = "SELECT * FROM Kunden";
+      ResultSet rs = stmt.executeQuery(sql);
+  
+      while ( rs.next() )
+      {
+        String id = rs.getString(1);
+        String firstName = rs.getString(2);
+        String lastName = rs.getString(3);
+        System.out.println(id + ", " + firstName + " " + lastName);
+      }
+       
+      // Resultset schließen
+      rs.close();
+  
+      // Statement schließen
       stmt.close();
-
+    }
+    catch ( SQLException e )
+    {
+      e.printStackTrace();
+    }
+    finally
     {
       if ( con != null )
       {
@@ -45,7 +63,10 @@ public class DB_connection
             }
       }
     }
-    return rs;
     }
-
+     
+    public static void main(String[] args)
+    {
+        new DB_connection();
+    }
 }
