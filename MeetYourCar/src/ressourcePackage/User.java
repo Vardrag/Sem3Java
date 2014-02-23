@@ -172,7 +172,7 @@ public boolean login(){
 
 
 public boolean register(){
-	try{ //Datenbank springt bei bestehendem Username zum Catch-Block
+	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
 		sb.append ("INSERT INTO Kunden (Anrede, Name, Vorname, Email, Benutzername, Passwort) VALUES (");
 		sb.append("'"+strAnrede +"', "); //Anrede Value
@@ -183,12 +183,11 @@ public boolean register(){
 		sb.append("'"+strPasswort +"', "); //Passwort Value
 		dbc = new DB_connection(sb.toString());
 		rstTemp = dbc.rs;
-    rstTemp.first();  
+ 
     return true;
 	} 
-	catch (SQLException eregister){
-	return false;	
-	}
+	
+	
 }
 
 }
