@@ -34,14 +34,6 @@ public class DB_connection
       // Alle Kunden ausgeben
 
       rs = stmt.executeQuery(sql);
-  
-      while ( rs.next() )
-      {
-        String id = rs.getString(1);
-        String firstName = rs.getString(2);
-        String lastName = rs.getString(3);
-        System.out.println(id + ", " + firstName + " " + lastName);
-      }
        
       // Resultset schlie�en
       rs.close();
