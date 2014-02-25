@@ -123,44 +123,52 @@ public void setEmail(String strEmail) {
 public boolean update/*Sucht DBEintrag nach ID und prï¿½ft Passwortwiederholung und updatet alle anderen Felder ausser Username*/(String strCheckPW){
 StringBuilder sb = new StringBuilder();
 if (strCheckPW == strPasswort){
-sb.append("UPDATE Kunden SET ");
-sb.append("Anrede = '"+strAnrede +"', "); //Anrede Value
-sb.append("Name = '"+strNachname +"', "); //Name Value
-sb.append("Vorname = '"+strVorname +"', "); //Vorname Value
-sb.append("Strasse = '"+strStrasse +"', "); //Strasse Value
-sb.append("PLZ = '"+strPLZ +"', "); //PLZ Value
-sb.append("Ort = '"+strStandortCar +"', "); //Ort Value
-sb.append("Email = '"+strEmail +"', "); //Email Value
-sb.append("Telefon = '"+strTelefon +"', "); //Telefon Value
-sb.append("Passwort = '"+strPasswort +"', "); //Passwort Value
-sb.append("Geburtstag = '"+datGeb +"') "); //Geburtstag Value
-sb.append("WHERE KID = " + intID + ";");
+sb.append("-->>>TEST<<<-- ; UPDATE tbl_Kunden SET ");
+sb.append("K_Anrede = '"+strAnrede +"', "); //Anrede Value
+sb.append("K_Name = '"+strNachname +"', "); //Name Value
+sb.append("K_Vorname = '"+strVorname +"', "); //Vorname Value
+sb.append("K_Strasse = '"+strStrasse +"', "); //Strasse Value
+sb.append("K_PLZ = '"+strPLZ +"', "); //PLZ Value
+sb.append("K_Ort = '"+strStandortCar +"', "); //Ort Value
+sb.append("K_Email = '"+strEmail +"', "); //Email Value
+sb.append("K_Telefon = '"+strTelefon +"', "); //Telefon Value
+sb.append("K_Passwort = '"+strPasswort +"', "); //Passwort Value
+sb.append("K_Geburtstag = '"+datGeb +"') "); //Geburtstag Value
+sb.append("WHERE K_ID = " + intID + ";");
 
-	dbc.main(sb.toString());
-	rstTemp = dbc.rs;
-return true;
+try {
+		dbc.update(sb.toString());
+		rstTemp = dbc.rs;
+		return true;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
 }
 else
-	return false;
+return false;
+
 }
 
+
 public boolean login(){
-    sqlArg = "Select * FROM Kunden WHERE Benutzername = '" + strUsername + "', AND Passwort ='"+strPasswort+"';";    
+    sqlArg = "-->>>TEST<<<-- ; Select * FROM tbl_Kunden WHERE K_Benutzername = '" + strUsername + "', AND K_Passwort ='"+strPasswort+"';";    
 	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
-		dbc.main(sqlArg);
+		dbc.select(sqlArg);
 		rstTemp = dbc.rs;
 		//User Abfrage
 		rstTemp.first();
-    	intID = rstTemp.getInt("KID");
-		strAnrede = rstTemp.getString("Anrede");
-		strVorname = rstTemp.getString("Vorname");
-		strNachname = rstTemp.getString("Name");
-		strEmail = rstTemp.getString("Email");
-		datGeb = rstTemp.getDate("Geburtstag");
-		strTelefon = rstTemp.getString("Telefon");
-		strStandortCar = rstTemp.getString("Ort");
-		strPLZ = rstTemp.getString("PLZ");
-		strStrasse = rstTemp.getString("Strasse");
+    	intID = rstTemp.getInt("K_ID");
+		strAnrede = rstTemp.getString("K_Anrede");
+		strVorname = rstTemp.getString("K_Vorname");
+		strNachname = rstTemp.getString("K_Name");
+		strEmail = rstTemp.getString("K_Email");
+		datGeb = rstTemp.getDate("K_Geburtstag");
+		strTelefon = rstTemp.getString("K_Telefon");
+		strStandortCar = rstTemp.getString("K_Ort");
+		strPLZ = rstTemp.getString("K_PLZ");
+		strStrasse = rstTemp.getString("K_Strasse");
 	    return true;
 		}
 	catch (SQLException elogin)
@@ -174,17 +182,21 @@ public boolean login(){
 public boolean register(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
-		sb.append ("-->>>TEST<<<-- ; INSERT INTO PUBLIC.KUNDEN (ANREDE, NAME, VORNAME, EMAIL, BENUTZERNAME, PASSWORT) VALUES (");
+		sb.append ("-->>>TEST<<<-- ; INSERT INTO PUBLIC.tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES (");
 		sb.append("'"+strAnrede +"', "); //Anrede Value
 		sb.append("'"+strNachname +"', "); //Name Value
 		sb.append("'"+strVorname +"', "); //Vorname Value
 		sb.append("'"+strEmail +"', "); //Email Value
 		sb.append("'"+strUsername +"', "); //Benutzername Value
 		sb.append("'"+strPasswort +"' )" ); //Passwort Value
-		dbc = new DB_connection(sb.toString());
-		rstTemp = dbc.rs;
- 
-    return true;
+		try { //Wenn erfolgreich, dann true zurückgeben
+			dbc.update(sb.toString());
+			rstTemp = dbc.rs;
+		    return true;
+		} catch (SQLException e) { //Wenn Fehler, dann false zurückgeben
+			return false;
+		}
+
 	} 
 	
 	

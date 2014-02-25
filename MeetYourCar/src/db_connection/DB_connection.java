@@ -9,7 +9,46 @@ import java.sql.Statement;
 public class DB_connection
 {
 	public ResultSet rs;
-    public DB_connection(String sql)
+	public Statement stmt;
+	private Connection con;
+	
+	protected void finalize() throws Throwable{ //schließen der DB-Connection, gibt speicher wieder frei
+	      
+	      try {
+	    	// Resultset schlieï¿½en
+			rs.close();
+		    // Statement schlieï¿½en
+		    stmt.close(); 
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	  
+
+
+		if ( con != null )
+	      {
+	        try {
+	            con.close();
+	            } catch ( SQLException e ) {
+	                e.printStackTrace();
+	            }	
+	      }
+	}
+	
+	public void update(String sql) throws SQLException{ //fuehrt UPDATE, INSERT INTO und DELETE Anweisungen aus
+
+			stmt.executeUpdate(sql);
+
+	}
+	
+	public void select(String sql) throws SQLException{// fuehrt SELECT Anweisungen aus
+		 rs = stmt.executeQuery(sql);
+	}
+	
+	
+	
+    public DB_connection() //Konstruktor
     {
           
     try
@@ -23,44 +62,25 @@ public class DB_connection
       return;
     }
   
-    Connection con = null;
+    con = null;
   
     try
     {
       con = DriverManager.getConnection( 
     		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
-      Statement stmt = con.createStatement();
+      stmt = con.createStatement();
   
-      // Alle Kunden ausgeben
-
-      rs = stmt.executeQuery(sql);
-       
-      // Resultset schlieï¿½en
-      rs.close();
-  
-      // Statement schlieï¿½en
-      stmt.close();
     }
     catch ( SQLException e )
     {
       e.printStackTrace();
     }
-    finally
-    {
-      if ( con != null )
-      {
-        try {
-            con.close();
-            } catch ( SQLException e ) {
-                e.printStackTrace();
-            }
-      }
-    }
+   
     }
      
-   public static void main(String args)
+   public static void main(String[] args)
     {
-        new DB_connection(args);
+        new DB_connection();
     }
 
 }
