@@ -2,6 +2,7 @@ package db_connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,7 +13,7 @@ public class DB_connection
 	public Statement stmt;
 	private Connection con;
 	
-	public void finalize(){ //schließen der DB-Connection, gibt speicher wieder frei
+	public void finalize(){ //schlieï¿½en der DB-Connection, gibt speicher wieder frei
 	      
 	      try {
 	    	// Resultset schlieï¿½en
@@ -24,8 +25,6 @@ public class DB_connection
 			e1.printStackTrace();
 		}
 	  
-
-
 		if ( con != null )
 	      {
 	        try {
@@ -38,7 +37,7 @@ public class DB_connection
 	
 	public void update(String sql) throws SQLException{ //fuehrt UPDATE, INSERT INTO und DELETE Anweisungen aus
 
-			stmt.executeUpdate(sql+';');
+			stmt.executeUpdate(sql);
 			
 	}
 	

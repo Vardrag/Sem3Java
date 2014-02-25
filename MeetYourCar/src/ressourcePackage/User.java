@@ -184,16 +184,16 @@ public boolean add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		dbc = new DB_connection();
 		StringBuilder sb = new StringBuilder();
-		sb.append ("-->>>TEST<<<-- ; INSERT INTO PUBLIC.tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES (");
-		sb.append("'"+strAnrede +"', "); //Anrede Value
-		sb.append("'"+strNachname +"', "); //Name Value
-		sb.append("'"+strVorname +"', "); //Vorname Value
-		sb.append("'"+strEmail +"', "); //Email Value
-		sb.append("'"+strUsername +"', "); //Benutzername Value
-		sb.append("'"+strPasswort +"' );" ); //Passwort Value
+		sb.append ("-->>>TEST<<<--; INSERT INTO `PUBLIC`.`tbl_KUNDEN` (`K_ANREDE`, `K_NAME`, `K_VORNAME`, `K_EMAIL`, `K_BENUTZERNAME`, `K_PASSWORT`) VALUES (");
+		sb.append('"'+strAnrede +'"'+", "); //Anrede Value
+		sb.append('"'+strNachname +'"'+", "); //Name Value
+		sb.append('"'+strVorname +'"'+", "); //Vorname Value
+		sb.append('"'+strEmail +'"'+", "); //Email Value
+		sb.append('"'+strUsername +'"'+", "); //Benutzername Value
+		sb.append('"'+strPasswort +'"'+" );" ); //Passwort Value
 		sqlArg = sb.toString();
 		System.out.print(sqlArg);
-		 //Wenn erfolgreich, dann true zurückgeben
+		 //Wenn erfolgreich, dann true zurï¿½ckgeben
 			try {
 				dbc.update(sqlArg);
 			} catch (SQLException e) {
