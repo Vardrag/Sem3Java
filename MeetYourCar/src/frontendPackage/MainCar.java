@@ -45,18 +45,19 @@ public class MainCar extends HttpServlet
 		userObj.setNachname(nachname);
 		userObj.setUsername(benutzername);
 		userObj.setEmail(email);
+		userObj.setPasswort(passwort);
 
 		
 		boolean temp = userObj.add();
 		
 		
-		RequestDispatcher disp = 
+		/*RequestDispatcher disp = 
 				   getServletContext().
 				   getRequestDispatcher("/registration.jsp");
-		   disp.forward(request, response);
+		   disp.forward(request, response);*/
 		
 		
-		/*if(Temp == false){
+		if(temp == false){
 			RequestDispatcher disp = 
 					   getServletContext().
 					   getRequestDispatcher("/registration.jsp");
@@ -66,7 +67,7 @@ public class MainCar extends HttpServlet
 					   getServletContext().
 					   getRequestDispatcher("/index.jsp");
 			   disp.forward(request, response);
-		}*/
+		}
 	}
 	
 	

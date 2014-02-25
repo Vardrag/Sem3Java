@@ -12,7 +12,7 @@ public class DB_connection
 	public Statement stmt;
 	private Connection con;
 	
-	protected void finalize() throws Throwable{ //schließen der DB-Connection, gibt speicher wieder frei
+	public void finalize(){ //schließen der DB-Connection, gibt speicher wieder frei
 	      
 	      try {
 	    	// Resultset schlieï¿½en
@@ -38,8 +38,8 @@ public class DB_connection
 	
 	public void update(String sql) throws SQLException{ //fuehrt UPDATE, INSERT INTO und DELETE Anweisungen aus
 
-			stmt.executeUpdate(sql);
-
+			stmt.executeUpdate(sql+';');
+			
 	}
 	
 	public void select(String sql) throws SQLException{// fuehrt SELECT Anweisungen aus
@@ -81,6 +81,7 @@ public class DB_connection
    public static void main(String[] args)
     {
         new DB_connection();
+        
     }
 
 }
