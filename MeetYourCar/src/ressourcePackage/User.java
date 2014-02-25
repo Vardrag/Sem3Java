@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class User {
+public class User implements IObjekt {
 //Variablen
 private int intID; //ID des Users (autoFeld der DB)
 private String strUsername; // Benutzername des Users
@@ -58,11 +58,17 @@ public void setUsername(String strUsername) {
 	this.strUsername = strUsername;
 }
 
-public void setPasswort(String strPasswort) throws NoSuchAlgorithmException {
+public void setPasswort(String strPasswort) {
 
-	MessageDigest md = MessageDigest.getInstance( "SHA" ); 
-	md.update( strPasswort.getBytes() );
-	this.strPasswort = md.digest().toString();
+	MessageDigest md;
+	try {
+		md = MessageDigest.getInstance( "SHA" );
+		md.update( strPasswort.getBytes() );
+		this.strPasswort = md.digest().toString();
+	} catch (NoSuchAlgorithmException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
 }
 
 public String getUserOrt() {
@@ -120,9 +126,8 @@ public void setEmail(String strEmail) {
 
 //oeffentliche Methoden
 	
-public boolean update/*Sucht DBEintrag nach ID und pr�ft Passwortwiederholung und updatet alle anderen Felder ausser Username*/(String strCheckPW){
+public boolean update()/*Sucht DBEintrag nach ID und updatet alle anderen Felder ausser Username*/{
 StringBuilder sb = new StringBuilder();
-if (strCheckPW == strPasswort){
 sb.append("-->>>TEST<<<-- ; UPDATE tbl_Kunden SET ");
 sb.append("K_Anrede = '"+strAnrede +"', "); //Anrede Value
 sb.append("K_Name = '"+strNachname +"', "); //Name Value
@@ -145,10 +150,6 @@ try {
 		e.printStackTrace();
 		return false;
 	}
-}
-else
-return false;
-
 }
 
 
@@ -179,7 +180,7 @@ public boolean login(){
 		
 
 
-public boolean register(){
+public boolean add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
 		sb.append ("-->>>TEST<<<-- ; INSERT INTO PUBLIC.tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES (");
@@ -199,7 +200,12 @@ public boolean register(){
 
 	} 
 	
-	
+public boolean delete(){
+	return false; 
+}
+public boolean find(){
+	return false;
+}
 }
 
 

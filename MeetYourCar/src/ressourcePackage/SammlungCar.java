@@ -1,7 +1,7 @@
 package ressourcePackage;
 
 
-public class  SammlungCar implements ICar {
+public class  SammlungCar {
 
 	
 	
