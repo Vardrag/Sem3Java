@@ -1,2 +1,8 @@
 /*C3*/SET SCHEMA PUBLIC
+drop table fahrzeuge
+drop table kunden
+ CREATE TABLE tbl_Kunden (K_ID Integer IDENTITY, K_Anrede VARCHAR(20), K_Name VARCHAR(50), K_Vorname VARCHAR(50), K_Strasse VARCHAR(50), K_PLZ VARCHAR(50), K_Ort VARCHAR(50), K_Email VARCHAR(50), K_Telefon VARCHAR(50), K_Benutzername VARCHAR(50)  UNIQUE, K_Passwort VARCHAR(250), K_Geburtstag VARCHAR(50)) 
+ CREATE TABLE tbl_Fahrzeuge( F_ID INTEGER IDENTITY, F_Typ VARCHAR(20), F_Marke VARCHAR(50), F_Erstzulassung DATE, F_Kilometer INTEGER, F_Leistung VARCHAR(50), F_Preis DOUBLE, F_Kraftstoffart VARCHAR(50), F_Farbe VARCHAR(50), F_Ausstattung VARCHAR(50), F_Bildlink VARCHAR(50), F_KID INTEGER) 
+INSERT INTO TBL_KUNDEN VALUES(0,'test','test','test','test','test','test','test','test','test','test',NULL)
+COMMIT
 DISCONNECT
