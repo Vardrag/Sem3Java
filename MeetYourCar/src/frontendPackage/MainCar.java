@@ -47,7 +47,7 @@ public class MainCar extends HttpServlet
 		userObj.setEmail(email);
 
 		
-		boolean temp = userObj.register();
+		boolean temp = userObj.add();
 		
 		
 		RequestDispatcher disp = 
