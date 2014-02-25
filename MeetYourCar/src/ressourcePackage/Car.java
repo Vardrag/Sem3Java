@@ -6,7 +6,6 @@ import java.util.Date;
 //
 public class Car implements IObjekt{
 //Variablen
-public int intKilometerstand; //Kilometerstand des Autos
 public String strAutofirma; //Marke des Autos
 public String strFarbe; //Farbe des Autos, als Name (evtl. auch als Farbcode angebbar)
 public String strSQLarg;
@@ -23,8 +22,6 @@ public String strOrt;
 
 //�ffentliche Methoden
 public boolean add()/*Objekt zu der Tabelle "Angebot" hinzuf�gen; gibt SQL-String weiter*/{
-StringBuilder sb = new StringBuilder();
-sb.append("Insert into tbl_Fahrzeuge (");
 return false;
 }
 

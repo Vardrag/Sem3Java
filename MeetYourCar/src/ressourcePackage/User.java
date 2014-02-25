@@ -153,7 +153,7 @@ try {
 }
 
 
-public boolean login(){
+public boolean find(){
     sqlArg = "-->>>TEST<<<-- ; Select * FROM tbl_Kunden WHERE K_Benutzername = '" + strUsername + "', AND K_Passwort ='"+strPasswort+"';";    
 	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
 		dbc.select(sqlArg);
@@ -203,9 +203,7 @@ public boolean add(){
 public boolean delete(){
 	return false; 
 }
-public boolean find(){
-	return false;
-}
+
 }
 
 
