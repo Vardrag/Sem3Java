@@ -2,11 +2,13 @@ package ressourcePackage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import db_connection.DB_connection;
 
 
 public class  SammlungCar {
-	private ArrayList<Car> CarListe;
+	public ArrayList<Car> CarListe;
+	private DB_connection dbc;
 	
 	public void searchCars (Car referenzCar)/*Sucht eine Gruppe von Autos*/{
 
@@ -38,27 +40,26 @@ public class  SammlungCar {
 		
 		
 		// Ende SQL-String bauen
-		
-		
-		DB_connection dbc = new DB_connection();
-		try {
+	
 			dbc.select(strB.toString()); //Daten abfragen
-			while (dbc.rs.next()) {
-				tempCar.strAutofirma = dbc.rs.getString("F_Marke"); //Marke des Autos
-				tempCar.strFarbe = dbc.rs.getString("F_Farbe"); //Farbe des Autos, als Name (evtl. auch als Farbcode angebbar)
-				tempCar.datErstzul = dbc.rs.getDate("F_Erstzulassung"); //Erstzulassung
-				tempCar.strKrSt = dbc.rs.getString("F_Kraftstoffart"); //Kraftstoff
-				tempCar.intKmStand = dbc.rs.getInt("F_Kilometer"); //Kilometerstand
-				tempCar.strLeistung = dbc.rs.getString("F_Leistung"); //Motorleistung
-				tempCar.dblPreis = dbc.rs.getDouble("F_Preis"); //Angebotspreis
-				tempCar.strUser = dbc.rs.getString("K_Marke");
-				tempCar.strOrt = dbc.rs.getString("K_Marke");
-			CarListe.add(tempCar);	
+			try {
+				while (dbc.rs.next()) {
+					tempCar.strAutofirma = dbc.rs.getString("F_Marke"); //Marke des Autos
+					tempCar.strFarbe = dbc.rs.getString("F_Farbe"); //Farbe des Autos, als Name (evtl. auch als Farbcode angebbar)
+					tempCar.datErstzul = dbc.rs.getDate("F_Erstzulassung"); //Erstzulassung
+					tempCar.strKrSt = dbc.rs.getString("F_Kraftstoffart"); //Kraftstoff
+					tempCar.intKmStand = dbc.rs.getInt("F_Kilometer"); //Kilometerstand
+					tempCar.strLeistung = dbc.rs.getString("F_Leistung"); //Motorleistung
+					tempCar.dblPreis = dbc.rs.getDouble("F_Preis"); //Angebotspreis
+					tempCar.strUser = dbc.rs.getString("K_Marke");
+					tempCar.strOrt = dbc.rs.getString("K_Marke");
+				CarListe.add(tempCar);	
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
 	}
 	

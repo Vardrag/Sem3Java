@@ -11,7 +11,7 @@ public class DB_connection
 	public ResultSet rs;
 	public Statement stmt;
 	
-	 public void update(String sql)
+	 public int update(String sql)
 	    {
 	          
 	    try
@@ -22,7 +22,7 @@ public class DB_connection
 	    catch ( ClassNotFoundException e ) 
 	    { 
 	      System.err.println( "Treiberklasse nicht gefunden!" ); 
-	      return; 
+	      return 0; 
 	    } 
 	  
 	    Connection con = null; 
@@ -34,16 +34,18 @@ public class DB_connection
 	      stmt = con.createStatement(); 
 	  
 	      // Alle Kunden ausgeben
-	      stmt.executeUpdate(sql);
+	     int i = stmt.executeUpdate(sql);
 	       
 	      // Resultset schließen
 	  
 	      // Statement schließen
 	      stmt.close(); 
+	      return i;
 	    } 
 	    catch ( SQLException e ) 
 	    { 
 	      e.printStackTrace(); 
+	      return 0;
 	    } 
 	    finally
 	    { 
@@ -93,7 +95,7 @@ public class DB_connection
 	      }
 	       
 	      // Resultset schließen
-	      rs.close(); 
+	      //rs.close(); 
 	  
 	      // Statement schließen
 	      stmt.close(); 

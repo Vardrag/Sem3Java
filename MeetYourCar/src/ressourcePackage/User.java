@@ -178,7 +178,7 @@ public boolean add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		dbc = new DB_connection();
 		StringBuilder sb = new StringBuilder();
-		sb.append ("INSERT INTO tbl_KUNDEN (`K_ANREDE`, `K_NAME`, `K_VORNAME`, `K_EMAIL`, `K_BENUTZERNAME`, `K_PASSWORT`) VALUES (");
+		sb.append ("INSERT INTO tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES (");
 		sb.append('"'+strAnrede +'"'+", "); //Anrede Value
 		sb.append('"'+strNachname +'"'+", "); //Name Value
 		sb.append('"'+strVorname +'"'+", "); //Vorname Value
@@ -188,8 +188,13 @@ public boolean add(){
 		sqlArg = sb.toString();
 		System.out.print(sqlArg);
 		 //Wenn erfolgreich, dann true zur�ckgeben
-				dbc.update(sqlArg);
-		    return true;
+			int i =	dbc.update(sqlArg);
+		    if (i == 0) {
+		    	return false;
+		    }
+		    else{
+		    	return true;
+		    }
 		
 
 	} 
