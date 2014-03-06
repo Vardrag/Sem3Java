@@ -8,7 +8,7 @@
    <head>
       <link rel="stylesheet" type="text/css" href="styles.css">
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-      <title>MeetYourCar</title>
+      <title>Inserat aufgeben</title>
    </head>
    <body>
       <div class="wrap">
@@ -67,6 +67,8 @@
             </div>
             Ja<a href="edit_user_profil.jsp"> Edit Profil</a><br/>
             nein <a href="/MeetYourCarRoot/index.jsp">zur Startseite</a>
+            <br><br>
+            <a href="/MeetYourCarRoot/create_car.jsp">Neues Inserat aufgeben</a>
          </div>
          <div class="footer">
             <img src="pics/hr.jpg" class="btw">
