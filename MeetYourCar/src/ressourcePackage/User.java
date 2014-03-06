@@ -128,7 +128,7 @@ public void setEmail(String strEmail) {
 	
 public boolean update()/*Sucht DBEintrag nach ID und updatet alle anderen Felder ausser Username*/{
 StringBuilder sb = new StringBuilder();
-sb.append("-->>>TEST<<<-- ; UPDATE tbl_Kunden SET ");
+sb.append("UPDATE tbl_Kunden SET ");
 sb.append("K_Anrede = '"+strAnrede +"', "); //Anrede Value
 sb.append("K_Name = '"+strNachname +"', "); //Name Value
 sb.append("K_Vorname = '"+strVorname +"', "); //Vorname Value
@@ -141,20 +141,14 @@ sb.append("K_Passwort = '"+strPasswort +"', "); //Passwort Value
 sb.append("K_Geburtstag = '"+datGeb +"') "); //Geburtstag Value
 sb.append("WHERE K_ID = " + intID + ";");
 
-try {
-		dbc.update(sb.toString());
-		rstTemp = dbc.rs;
-		return true;
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		return false;
-	}
+dbc.update(sb.toString());
+rstTemp = dbc.rs;
+return true;
 }
 
 
 public boolean find(){
-    sqlArg = "-->>>TEST<<<-- ; Select * FROM tbl_Kunden WHERE K_Benutzername = '" + strUsername + "', AND K_Passwort ='"+strPasswort+"';";    
+    sqlArg = "Select * FROM tbl_Kunden WHERE K_Benutzername = '" + strUsername + "', AND K_Passwort ='"+strPasswort+"';";    
 	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
 		dbc.select(sqlArg);
 		rstTemp = dbc.rs;
@@ -184,7 +178,7 @@ public boolean add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		dbc = new DB_connection();
 		StringBuilder sb = new StringBuilder();
-		sb.append ("-->>>TEST<<<--; INSERT INTO `PUBLIC`.`tbl_KUNDEN` (`K_ANREDE`, `K_NAME`, `K_VORNAME`, `K_EMAIL`, `K_BENUTZERNAME`, `K_PASSWORT`) VALUES (");
+		sb.append ("INSERT INTO tbl_KUNDEN (`K_ANREDE`, `K_NAME`, `K_VORNAME`, `K_EMAIL`, `K_BENUTZERNAME`, `K_PASSWORT`) VALUES (");
 		sb.append('"'+strAnrede +'"'+", "); //Anrede Value
 		sb.append('"'+strNachname +'"'+", "); //Name Value
 		sb.append('"'+strVorname +'"'+", "); //Vorname Value
@@ -194,13 +188,7 @@ public boolean add(){
 		sqlArg = sb.toString();
 		System.out.print(sqlArg);
 		 //Wenn erfolgreich, dann true zur�ckgeben
-			try {
 				dbc.update(sqlArg);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace(System.out);
-				return false;
-			}
 		    return true;
 		
 

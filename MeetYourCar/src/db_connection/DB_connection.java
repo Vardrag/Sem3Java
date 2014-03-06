@@ -37,7 +37,6 @@ public class DB_connection
 	      stmt.executeUpdate(sql);
 	       
 	      // Resultset schließen
-	      rs.close(); 
 	  
 	      // Statement schließen
 	      stmt.close(); 
@@ -60,7 +59,7 @@ public class DB_connection
 	    }
 	
 	
-	public void select(String sql) throws SQLException{// fuehrt SELECT Anweisungen aus
+	public void select(String sql) {// fuehrt SELECT Anweisungen aus
 	    {
 	          
 	    try
@@ -121,12 +120,8 @@ public class DB_connection
 	
     public DB_connection() //Konstruktor
     { 
-   try {
-	select("Select * from tbl_Kunden");
-} catch (SQLException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
+   //select("Select * from tbl_Kunden");
+   update("INSERT INTO tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES ('female', 't', 't', 't', 't', '[B@1ad5cabc' )");
     }
      
    public static void main(String[] args)
