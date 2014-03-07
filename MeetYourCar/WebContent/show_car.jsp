@@ -10,8 +10,8 @@
    <body>
       <div class="wrap">
          <div class="top"></div>
-         <form method="get" action="MainCar" name="show_car" class="container">
-         <input type="hidden" name="show_car">
+         <form method="POST" action="MainCar" name="auswertung_login" class="container">
+         <input type="hidden" name="auswertung_login">
             <div class="mycss">
                Meet Your Car<br/>
                <div class="second_h">Ihr ausgewähltes Fahrzeug!</div>
