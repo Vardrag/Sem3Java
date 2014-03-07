@@ -2,9 +2,7 @@
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
 
-<% public void pwpruefen  %>
-<% if (request.getParameter("passwort1") == request.getParameter("passwort2")) { msg = "Eingabe korrekt") %>
-<% } else { msg = "Fehler bei Eingabe"} %>
+<% if (request.getParameter("passwort1") == request.getParameter("passwort2")) { String msg = "Eingabe korrekt"; } else { String msg = "Fehler bei Eingabe" ;}  %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
