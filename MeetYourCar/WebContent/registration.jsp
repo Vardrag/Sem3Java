@@ -2,6 +2,10 @@
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
 
+<% public void pwpruefen  %>
+<% if (request.getParameter("passwort1") == request.getParameter("passwort2")) { msg = "Eingabe korrekt") %>
+<% } else { msg = "Fehler bei Eingabe"} %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -51,10 +55,10 @@
                   <input class="textbox" type="text" name="email">
                </p>
                <p>Passwort*<br/>
-                  <input class="textbox" type="password" name="passwort">
+                  <input class="textbox" type="password" name="passwort1">
                </p>
                Passwort Bestätigen*<br/>
-               <input class="textbox" type="password" name="passwort"><br/><br/>
+               <input class="textbox" type="password" name="passwort2"><br/><br/>
             </div>
             <div class="pflichtfeld">
                *Pflichfeld<br/><br/>
