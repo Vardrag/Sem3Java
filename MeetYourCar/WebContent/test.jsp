@@ -21,6 +21,7 @@ private String getEndErrorTag(String sKey, Vector vError)
    return "";
 }
 
+
 %>
 <%
 Vector vError = new Vector();
@@ -61,6 +62,16 @@ if (request.getParameter("vorname") != null)
    Matcher m = p.matcher(sEmail);
    if (!m.matches()) vError.add("email");      
    
+   
+   String[] sEmail = request.getParameterValues("email");
+   if (s.equals sEmail_control = request.getText("email_control")
+   {
+	   System.out.println( "Alles richtig!")
+   }
+   else
+   {
+      vError.add("email_control");
+   }   
 
 }
 
