@@ -30,7 +30,7 @@ public class DB_connection
 	    try
 	    { 
 	        con = DriverManager.getConnection( 
-	      		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
+	      		  "jdbc:hsqldb: http://localhost:8080/MeetYourCarRoot/hsqldb; shutdown=true", "root", "root" );
 	      stmt = con.createStatement(); 
 	  
 	      // Alle Kunden ausgeben
@@ -80,7 +80,7 @@ public class DB_connection
 	    try
 	    { 
 	        con = DriverManager.getConnection( 
-	      		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
+	      		  "jdbc:hsqldb: http://localhost:8080/MeetYourCarRoot/hsqldb; shutdown=true", "root", "root" );
 	      stmt = con.createStatement(); 
 	  
 	      // Alle Kunden ausgeben
