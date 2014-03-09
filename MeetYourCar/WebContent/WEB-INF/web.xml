@@ -17,17 +17,4 @@
     <servlet-name>MainCar</servlet-name>
     <url-pattern>/MainCar</url-pattern>
   </servlet-mapping>
-  <servlet>
-		<servlet-name>hsql</servlet-name>
-		<servlet-class>org.hsqldb.server.Servlet</servlet-class> 
-                <!-- Example of absolute DB path, for path relative ./WEB_INF add parameter hsqldb.server.use_web-inf_path = true -->
-		<init-param>
-			<param-name>hsqldb.server.database</param-name> 
-			<param-value>/var/db/hsql01</param-value> 
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>hsql</servlet-name>
-		<url-pattern>*</url-pattern>
-	</servlet-mapping>
 </web-app>
