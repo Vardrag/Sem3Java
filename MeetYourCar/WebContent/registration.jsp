@@ -1,9 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="java.text.*" %>
+<%@ page import="java.util.regex.*" %>
+<%!
+private String getStartErrorTag(String sKey, Vector vError)
+{
+   if (vError.contains(sKey))
+   {
+      return "<b>";
+   }
+   return "";
+}
 
-<% if (request.getParameter("passwort1") == request.getParameter("passwort2")) { String msg = "Eingabe korrekt"; } else { String msg = "Fehler bei Eingabe" ;}  %>
+private String getEndErrorTag(String sKey, Vector vError)
+{
+   if (vError.contains(sKey))
+   {
+      return "</b>";
+   }
+   return "";
+}
 
+%>
+<%
+Vector vError = new Vector();
+String sVorname = "";
+String sNachname = "";
+String sBenutzername = "";
+String sEmail = "";
+String sEmail_control = "";
+String sPasswort = "";
+String sPasswort_control = "";
+
+// Wenn das Formular abgeschickt wurde
+if (request.getParameter("vorname") != null)
+{
+   sVorname  = request.getParameter("vorname");
+   if (sVorname.length() == 0) vError.add("vorname");
+   
+   sNachname  = request.getParameter("nachname");
+   if (sNachname.length() == 0) vError.add("nachname");
+   
+   sBenutzername  = request.getParameter("benutzername");
+   if (sBenutzername.length() == 0) vError.add("benutzername"); 
+   
+   sEmail  = request.getParameter("email");
+   if (sEmail.length() == 0) vError.add("email");
+   
+   sEmail_control  = request.getParameter("email_control");
+   if (sEmail_control.length() == 0) vError.add("email_control");
+   
+   sPasswort  = request.getParameter("passwort");
+   if (sPasswort.length() == 0) vError.add("passwort"); 
+   
+   sPasswort_control  = request.getParameter("passwort_control");
+   if (sPasswort_control.length() == 0) vError.add("passwort_control"); 
+   
+   sEmail = request.getParameter("email");
+   Pattern p = Pattern.compile("^[a-zA-Z0-9]+((\\.|!|_|\\+|\\-)[a-zA-Z0-9]+)*@([a-zA-Z0-9]+(\\.|\\-))+[a-zA-Z0-9]{2,}$");
+   Matcher m = p.matcher(sEmail);
+   if (!m.matches()) vError.add("email");      
+   
+
+}
+
+if (request.getParameter("vorname") != null && vError.isEmpty())
+{
+	RequestDispatcher disp = 
+	getServletContext().
+	getRequestDispatcher("/MainCar");
+	disp.forward(request, response);
+ }
+
+else
+{
+%>   
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,9 +84,9 @@
       <title>MeetYourCar</title>
    </head>
    <body>
-      <div class="wrap">
+    <div class="wrap">
          <div class="top"></div>
-         <form method="POST" action="MainCar" name="auswertung_registration" class="container">
+         <form method="POST" action="registration.jsp" name="auswertung_registration" class="container">
          <input type="hidden" name="auswertung_registration">
             <div class="mycss">
                Anmeldung<br/>
@@ -25,6 +96,13 @@
             <div class="head">
                <div class="anmeldung">
                   Jetzt kostenlos Anmelden<br/><br/>
+                  
+<%
+   if (!vError.isEmpty())
+   {
+      out.print("<b>Bitte überprüfen Sie die markierten Felder</b><br>");
+   }   
+%>  
                </div>
             </div>
             <div class="links">
@@ -35,28 +113,28 @@
                      <option value="male">Herr</option>
                   </select>
                </p>
-               <p>Vorname*<br/>
-                  <input class="textbox" type="text" name="vorname"> 
+               <p><%= getStartErrorTag("vorname", vError) %>Vorname*<%= getEndErrorTag("vorname", vError) %><br/>
+                  <input class="textbox" type="text" name="vorname" value="<%= sVorname %>"> 
                </p>
-               <p>Nachname*<br/>
-                  <input class="textbox" type="text" name="nachname"> 
+               <p><%= getStartErrorTag("nachname", vError) %>Nachname*<%= getEndErrorTag("nachname", vError) %><br/>
+                  <input class="textbox" type="text" name="nachname" value="<%= sNachname %>"> 
                </p>
-               <p>Benutzername*<br/>
-                  <input class="textbox" type="text" name="benutzername"> 
+               <p><%= getStartErrorTag("benutzername", vError) %>Benutzername*<%= getEndErrorTag("benutzername", vError) %><br/>
+                  <input class="textbox" type="text" name="benutzername" value="<%= sBenutzername %>"> 
                </p>
             </div>
             <div class="rechts">
-               <p>E-Mail*<br/>
-                  <input class="textbox" type="text" name="email">
+               <p><%= getStartErrorTag("email", vError) %>E-Mail*<%= getEndErrorTag("email", vError) %><br/>
+                  <input class="textbox" type="text" name="email" value="<%= sEmail %>">
                </p>
-               <p>E-Mail Bestätigen*<br/>
-                  <input class="textbox" type="text" name="email">
+               <p><%= getStartErrorTag("email_control", vError) %>E-Mail Bestätigen*<%= getEndErrorTag("email_control", vError) %><br/>
+                  <input class="textbox" type="text" name="email_control" value="<%= sEmail_control %>">
                </p>
-               <p>Passwort*<br/>
-                  <input class="textbox" type="password" name="passwort1">
+               <p><%= getStartErrorTag("passwort", vError) %>Passwort*<%= getEndErrorTag("passwort", vError) %><br/>
+                  <input class="textbox" type="password" name="passwort" value="<%= sPasswort %>">
                </p>
-               Passwort Bestätigen*<br/>
-               <input class="textbox" type="password" name="passwort2"><br/><br/>
+               <%= getStartErrorTag("passwort_control", vError) %>Passwort Bestätigen*<%= getEndErrorTag("passwort_control", vError) %><br/>
+               <input class="textbox" type="password" name="passwort_control" value="<%= sPasswort_control %>"><br/><br/>
             </div>
             <div class="pflichtfeld">
                *Pflichfeld<br/><br/>
@@ -86,3 +164,6 @@
       </div>
    </body>
 </html>
+<%
+}
+%>
