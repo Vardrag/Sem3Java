@@ -13,7 +13,6 @@ import java.sql.SQLException;
 
 import ressourcePackage.Car;
 import ressourcePackage.User;
-import db_connection.DB_connection;
 import myServlets.DbConn;
 
 public class MainCar extends HttpServlet
@@ -33,7 +32,7 @@ public class MainCar extends HttpServlet
 public void init(javax.servlet.ServletConfig config)
        throws ServletException {
 
-   // Überschriebene init()-Methode der Superklasse aufrufen !
+   // ï¿½berschriebene init()-Methode der Superklasse aufrufen !
    super.init(config);
 
    // Parameter aus der Datein WEB-INF/web.xml auslesen
@@ -137,45 +136,45 @@ public void init(javax.servlet.ServletConfig config)
 	   
 	   //HttpSessions erzeugen
 	   
-	   //Parameter für Marke
+	   //Parameter fï¿½r Marke
 	   StringBuffer mar = new StringBuffer((String) strAutofirma);
 	   String ausgabe_Marke = mar.toString();   
-	   //session handle für Marke
+	   //session handle fï¿½r Marke
 	   HttpSession Marke = request.getSession();
 	   Marke.setAttribute("Marke", ausgabe_Marke);
 	   	  	   
-	   //Parameter für Leistung
+	   //Parameter fï¿½r Leistung
 	   StringBuffer lei = new StringBuffer((String) strLeistung);
 	   String ausgabe_Leistung = lei.toString();
-	   //session handle für Leistung
+	   //session handle fï¿½r Leistung
 	   HttpSession Leistung = request.getSession();
 	   Leistung.setAttribute("Leistung", ausgabe_Leistung);
 	   
-	   //Parameter für Erstzulassung
+	   //Parameter fï¿½r Erstzulassung
 	   StringBuffer ers = new StringBuffer((String) datErstzul);
 	   String ausgabe_Erstzulassung= ers.toString();
-	   //session handle für Erstzulassung
+	   //session handle fï¿½r Erstzulassung
 	   HttpSession Erstzulassung = request.getSession();
 	   Erstzulassung.setAttribute("Erstzulassung", ausgabe_Erstzulassung);
 	   
-	 //Parameter für Preis
+	 //Parameter fï¿½r Preis
 	   StringBuffer pre = new StringBuffer((String) strPreis);
 	   String ausgabe_Preis = pre.toString();
-	   //session handle für Preis
+	   //session handle fï¿½r Preis
 	   HttpSession Preis = request.getSession();
 	   Preis.setAttribute("Preis", ausgabe_Preis);
 	   
-	   //Parameter für Kraftstoff
+	   //Parameter fï¿½r Kraftstoff
 	   StringBuffer kra = new StringBuffer((String) strKraftstoff);
 	   String ausgabe_Kraftstoff = kra.toString();
-	   //session handle für Kraftstoff
+	   //session handle fï¿½r Kraftstoff
 	   HttpSession Kraftstoff = request.getSession();
 	   Kraftstoff.setAttribute("Kraftstoff", ausgabe_Kraftstoff);
 	   
-	   //Parameter für Kilometerstand
+	   //Parameter fï¿½r Kilometerstand
 	   StringBuffer kil = new StringBuffer((String) strKilometerstand);
 	   String ausgabe_Kilometerstand = kil.toString();
-	   //session handle für Kraftstoff
+	   //session handle fï¿½r Kraftstoff
 	   HttpSession Kilometerstand = request.getSession();
 	   Kilometerstand.setAttribute("Kilometerstand", ausgabe_Kilometerstand);
 	   

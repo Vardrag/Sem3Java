@@ -1,10 +1,7 @@
 package ressourcePackage;
-import db_connection.*;
-
 import java.security.*;
 import java.sql.Date;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
 public class User implements IObjekt {
@@ -23,7 +20,6 @@ private String strTelefon; // TelefonNr des Users
 private String strStandortCar; //allgemeiner Standort (Wohnort des Users)
 private String strPLZ;
 private String strStrasse;
-private DB_connection dbc;
 private String sqlArg;
 private ResultSet rstTemp;
 
@@ -126,7 +122,7 @@ public void setEmail(String strEmail) {
 
 //oeffentliche Methoden
 	
-public boolean update()/*Sucht DBEintrag nach ID und updatet alle anderen Felder ausser Username*/{
+public String update()/*Sucht DBEintrag nach ID und updatet alle anderen Felder ausser Username*/{
 StringBuilder sb = new StringBuilder();
 sb.append("UPDATE tbl_Kunden SET ");
 sb.append("K_Anrede = '"+strAnrede +"', "); //Anrede Value
@@ -141,35 +137,14 @@ sb.append("K_Passwort = '"+strPasswort +"', "); //Passwort Value
 sb.append("K_Geburtstag = '"+datGeb +"') "); //Geburtstag Value
 sb.append("WHERE K_ID = " + intID + ";");
 
-dbc.update(sb.toString());
-rstTemp = dbc.rs;
-return true;
+return sb.toString();
 }
 
 
-public boolean find(){
+public String find(){
     sqlArg = "Select * FROM tbl_Kunden WHERE K_Benutzername = '" + strUsername + "', AND K_Passwort ='"+strPasswort+"';";    
-	try { // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
-		dbc.select(sqlArg);
-		rstTemp = dbc.rs;
-		//User Abfrage
-		rstTemp.first();
-    	intID = rstTemp.getInt("K_ID");
-		strAnrede = rstTemp.getString("K_Anrede");
-		strVorname = rstTemp.getString("K_Vorname");
-		strNachname = rstTemp.getString("K_Name");
-		strEmail = rstTemp.getString("K_Email");
-		datGeb = rstTemp.getDate("K_Geburtstag");
-		strTelefon = rstTemp.getString("K_Telefon");
-		strStandortCar = rstTemp.getString("K_Ort");
-		strPLZ = rstTemp.getString("K_PLZ");
-		strStrasse = rstTemp.getString("K_Strasse");
-	    return true;
-		}
-	catch (SQLException elogin)
-	{
-		return false;
-	}
+    // Wenn ResultSet leer, d.h. Kombination Username und Passwort nicht in DB, springt zum Catch-Block
+		return sqlArg;
 }
 		
 
@@ -190,8 +165,9 @@ public String add(){
 		return sqlArg;
 	} 
 	
-public boolean delete(){
-	return false; 
+public String delete(){
+	sqlArg = "Delete from tbl_Kunden where K_ID = " + intID;
+	return sqlArg; 
 }
 
 }
