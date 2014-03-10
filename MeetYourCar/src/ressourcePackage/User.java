@@ -174,29 +174,20 @@ public boolean find(){
 		
 
 
-public boolean add(){
+public String add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
-		dbc = new DB_connection();
 		StringBuilder sb = new StringBuilder();
 		sb.append ("INSERT INTO tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES (");
-		sb.append('"'+strAnrede +'"'+", "); //Anrede Value
-		sb.append('"'+strNachname +'"'+", "); //Name Value
-		sb.append('"'+strVorname +'"'+", "); //Vorname Value
-		sb.append('"'+strEmail +'"'+", "); //Email Value
-		sb.append('"'+strUsername +'"'+", "); //Benutzername Value
-		sb.append('"'+strPasswort +'"'+" );" ); //Passwort Value
+		sb.append("'"+strAnrede +"'"+", "); //Anrede Value
+		sb.append("'"+strNachname +"'"+", "); //Name Value
+		sb.append("'"+strVorname +"'"+", "); //Vorname Value
+		sb.append("'"+strEmail +"'"+", "); //Email Value
+		sb.append("'"+strUsername +"'"+", "); //Benutzername Value
+		sb.append("'"+strPasswort +"'"+" );" ); //Passwort Value
 		sqlArg = sb.toString();
 		System.out.print(sqlArg);
 		 //Wenn erfolgreich, dann true zur�ckgeben
-			int i =	dbc.update(sqlArg);
-		    if (i == 0) {
-		    	return false;
-		    }
-		    else{
-		    	return true;
-		    }
-		
-
+		return sqlArg;
 	} 
 	
 public boolean delete(){

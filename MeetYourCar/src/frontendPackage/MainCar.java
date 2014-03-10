@@ -5,11 +5,16 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import myServlets.DbConn;
+
 import java.net.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import ressourcePackage.Car;
 import ressourcePackage.User;
 import db_connection.DB_connection;
+import myServlets.DbConn;
 
 public class MainCar extends HttpServlet
 {
@@ -17,8 +22,43 @@ public class MainCar extends HttpServlet
    
    Car carObj = new Car(); //Car obj
    User userObj = new User(); // User obj
+   DbConn conn; 
 
  //Abfrage per Post
+@Override
+/**
+ * Initialisieren der Datenbank-Verbindung mit Parametern aus
+ * dem Web Deployment Descriptor WEB-INF/web.xml
+ */
+public void init(javax.servlet.ServletConfig config)
+       throws ServletException {
+
+   // Überschriebene init()-Methode der Superklasse aufrufen !
+   super.init(config);
+
+   // Parameter aus der Datein WEB-INF/web.xml auslesen
+   String driver = "org.hsqldb.jdbcDriver";
+   String url = "jdbc:hsqldb:file:../webapps/MeetYourCar/HSQLDB/hsqldb-2.3.1/hsqldb;create=true";
+   String user = "root";
+   String pw = "root";
+
+   // Initialisieren der Datenbank-Verbindung 
+   // mit der Klasse DbConn
+   try {
+
+	 conn = new DbConn(driver, url, user, pw);
+	
+   } catch (Exception e) {
+       throw new ServletException("SQL-Exception in init()", e);
+   }
+   try {
+	ResultSet rs = conn.select("SELECT * FROM   INFORMATION_SCHEMA.TABLES");
+} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+} 
+
 @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	          throws ServletException, IOException {	
@@ -48,9 +88,16 @@ public class MainCar extends HttpServlet
 		userObj.setPasswort(passwort);
 
 		
-		boolean temp = userObj.add();
+		String sql  = userObj.add();
 		
-		if(vorname != null){
+		try {
+			conn.dml(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	/*	if(vorname != null){
 		RequestDispatcher disp = 
 				   getServletContext().
 				   getRequestDispatcher("/index.jsp");
@@ -62,7 +109,7 @@ public class MainCar extends HttpServlet
 					   getRequestDispatcher("/Login.jsp");
 			   disp.forward(request, response);
 		}
-		
+		*/
 		/*if(temp == false){
 			RequestDispatcher disp = 
 					   getServletContext().
@@ -155,5 +202,15 @@ public class MainCar extends HttpServlet
 	
 	
 	   }  
+@Override
+public void destroy() {
+    try {
+      //Freigeben von Datenbank-Ressourcen
+      conn.closeDb();
+    } 
+	catch (SQLException e) {
+      log("SQL-Exception in destroy()", e);
+    }
+  }   
 }
 

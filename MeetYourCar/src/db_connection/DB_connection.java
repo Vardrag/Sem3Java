@@ -11,6 +11,13 @@ public class DB_connection
 	public ResultSet rs;
 	public Statement stmt;
 	
+	public int update2(String sql){
+		
+		myServlet.DbServlet test; 
+		return 1;
+				
+	}
+	
 	 public int update(String sql)
 	    {
 	          
@@ -30,7 +37,7 @@ public class DB_connection
 	    try
 	    { 
 	        con = DriverManager.getConnection( 
-	      		  "jdbc:hsqldb: http://localhost:8080/MeetYourCarRoot/hsqldb; shutdown=true", "root", "root" );
+	      		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb", "root", "root" );
 	      stmt = con.createStatement(); 
 	  
 	      // Alle Kunden ausgeben
@@ -80,7 +87,7 @@ public class DB_connection
 	    try
 	    { 
 	        con = DriverManager.getConnection( 
-	      		  "jdbc:hsqldb: http://localhost:8080/MeetYourCarRoot/hsqldb; shutdown=true", "root", "root" );
+	      		  "jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb; shutdown=true", "root", "root" );
 	      stmt = con.createStatement(); 
 	  
 	      // Alle Kunden ausgeben
@@ -122,8 +129,8 @@ public class DB_connection
 	
     public DB_connection() //Konstruktor
     { 
-   //select("Select * from tbl_Kunden");
-   update("INSERT INTO tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES ('female', 't', 't', 't', 't', '[B@1ad5cabc' )");
+   select("Select * from tbl_Kunden");
+   //update("INSERT INTO tbl_KUNDEN (K_ANREDE, K_NAME, K_VORNAME, K_EMAIL, K_BENUTZERNAME, K_PASSWORT) VALUES ('female', 't', 't', 't', 't', '[B@1ad5cabc' )");
     }
      
    public static void main(String[] args)

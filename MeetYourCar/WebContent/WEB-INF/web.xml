@@ -9,20 +9,35 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+ <servlet> 
+<servlet-name>DatabaseServlet</servlet-name> 
+<servlet-class>myServlets.DbServlet</servlet-class>
+
+ <init-param>
+  <param-name>jdbcClass</param-name> 
+  <param-value>org.hsqldb.jdbcDriver</param-value> 
+  </init-param> 
+  <init-param> 
+  <param-name>dbURL</param-name> 
+  <param-value>jdbc:hsqldb:file:WebContent/HSQLDB/hsqldb-2.3.1/hsqldb ;shutdown=true</param-value> 
+  </init-param> 
+  <init-param> 
+  <param-name>username</param-name> 
+  <param-value>root</param-value> 
+  </init-param> 
+  <init-param> 
+  <param-name>password</param-name> 
+  <param-value>root</param-value> 
+  </init-param>
+ </servlet>
+ 
   <servlet>
     <servlet-name>MainCar</servlet-name>
     <servlet-class>frontendPackage.MainCar</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>db-connect</servlet-name>
-  	<servlet-class>org.hsqldb.server.Servlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MainCar</servlet-name>
     <url-pattern>/MainCar</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>db-connect</servlet-name>
-  	<url-pattern>/hsqldb</url-pattern>
-  </servlet-mapping>
+
 </web-app>
