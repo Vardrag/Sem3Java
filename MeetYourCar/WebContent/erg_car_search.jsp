@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.text.*" %>
 <%@ page import="java.util.*" %>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
    <head>
@@ -39,20 +37,68 @@
             <div class="rechts">
                Preis<br/>
                <%= (String)session.getAttribute("Preis") %>
- 
                <br/><br/>
                Kraftstoff<br/>
                <%= (String)session.getAttribute("Kraftstoff") %>
-               
                <br/><br/>
                Kilometerstand<br/>
                <%= (String)session.getAttribute("Kilometerstand")%>
-               
                <br/><br/>
             </div>
             <div class="erg_suchanfrage">
                <b>Folgende Angebote sind vorhanden</b><br/><br/>
                --- ERG DER SUCHANFRAGE AUS DB ---
+               <table class="tbl" cellspacing="0" cellpadding="0">
+                  <thead>
+                     <tr>
+                        <th>Marke</th>
+                        <th>Leistung</th>
+                        <th>Erstzu.</th>
+                        <th>Preis</th>
+                        <th>Kraftst.</th>
+                        <th>KmStand</th>
+                        <th>Anbieter</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Link</td>
+                     </tr>
+                     <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Link</td>
+                     </tr>
+                     <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Link</td>
+                     </tr>
+                     <tr>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Text</td>
+                        <td>Link</td>
+                     </tr>
+                  </tbody>
+               </table>
                <br/><br/>
             </div>
             Haben Sie etwas gefunden?<br/><br/>
@@ -82,11 +128,3 @@
       </div>
    </body>
 </html>
-
-
-
-
-
-
-
-
