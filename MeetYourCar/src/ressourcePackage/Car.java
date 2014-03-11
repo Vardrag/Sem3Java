@@ -62,26 +62,27 @@ return sb.toString();
 
 public String find(){
 	StringBuilder strB = new StringBuilder();
-	strB.append("Select * from View_Fahrzeuge WHERE ");
+	strB.append("Select * from tbl_Fahrzeuge WHERE ");
 	if (intKmStand > 0){
-		strB.append("F_Kilometerstand  < "+intKmStand+" AND");
+		strB.append("F_Kilometerstand  = "+intKmStand+" AND ");
 	}
 	if (strAutofirma != ""){
-		strB.append("F_Marke  = "+ strAutofirma +" AND");
+		strB.append("F_Marke  = '"+ strAutofirma +"' AND ");
 	}		
 	if (strLeistung != ""){
-		strB.append("F_Leistung  = "+strLeistung+" AND");
+		strB.append("F_Leistung  = '"+strLeistung+"' AND ");
 	}		
 	if (dblPreis > 0.0){
-		strB.append("F_Preis  = "+dblPreis+" AND");
+		strB.append("F_Preis  = "+dblPreis+" AND ");
 	}		
 	if (strErstzul != ""){
-		strB.append("F_Kraftstoffart  = "+strKraftstoff+" AND");
+		strB.append("F_Kraftstoffart  = '"+strKraftstoff+"' AND ");
 	}
 	if (strErstzul != ""){
-		strB.append("F_Erstzulassung  = "+strErstzul+" AND");
+		strB.append("F_Erstzulassung  = '"+strErstzul+"' AND ");
 	}
-	strB.setLength(strB.length()-3);
+	strB.setLength(strB.length()-4);
+	System.out.println(strB.toString());
 	return sqlArg;
 }
 }
