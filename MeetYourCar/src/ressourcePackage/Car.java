@@ -25,7 +25,8 @@ public String strKraftstoff;
 public String add(){
 	 //Datenbank springt bei bestehendem Username zum Catch-Block
 		StringBuilder sb = new StringBuilder();
-		sb.append ("INSERT INTO tbl_Fahrzeuge (F_Marke, F_Farbe, F_Erstzulassung, F_Kilometer, F_Leistung, F_Preis,F_KID) VALUES (");
+		sb.append ("INSERT INTO tbl_Fahrzeuge (F_Kraftstoffart, F_Marke, F_Farbe, F_Erstzulassung, F_Kilometer, F_Leistung, F_Preis,F_KID) VALUES (");
+		sb.append("'"+strKraftstoff+"'"+", ");
 		sb.append("'"+strAutofirma +"'"+", "); //Anrede Value
 		sb.append("'"+strFarbe +"'"+", "); //Name Value
 		sb.append("'"+strErstzul +"'"+", "); //Vorname Value
@@ -46,6 +47,7 @@ public String delete()/*Objekt aus der Tabelle entfernen; gibt SQL-String weiter
 public String update()/*Sucht DBEintrag nach ID und updatet alle anderen Felder ausser Username*/{
 StringBuilder sb = new StringBuilder();
 sb.append("UPDATE tbl_Fahrzeuge SET ");
+sb.append("F_Kraftstoffart = '"+strKraftstoff + "', ");
 sb.append("F_Marke = '"+strAutofirma +"', "); //Anrede Value
 sb.append("F_Farbe = '"+strFarbe +"', "); //Name Value
 sb.append("F_Erstzulassung = '"+strErstzul +"', "); //Vorname Value
@@ -73,6 +75,9 @@ public String find(){
 	if (dblPreis > 0.0){
 		strB.append("F_Preis  = "+dblPreis+" AND");
 	}		
+	if (strErstzul != ""){
+		strB.append("F_Kraftstoffart  = "+strKraftstoff+" AND");
+	}
 	if (strErstzul != ""){
 		strB.append("F_Erstzulassung  = "+strErstzul+" AND");
 	}
