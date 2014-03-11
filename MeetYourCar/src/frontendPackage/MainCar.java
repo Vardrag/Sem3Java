@@ -5,6 +5,8 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
 import myServlets.DbConn;
 
 import java.net.*;
@@ -14,6 +16,7 @@ import java.sql.SQLException;
 import ressourcePackage.Car;
 import ressourcePackage.User;
 import myServlets.DbConn;
+
 
 public class MainCar extends HttpServlet
 {
@@ -31,7 +34,6 @@ public class MainCar extends HttpServlet
  */
 public void init(javax.servlet.ServletConfig config)
        throws ServletException {
-
    // ï¿½berschriebene init()-Methode der Superklasse aufrufen !
    super.init(config);
 
@@ -95,35 +97,18 @@ public void init(javax.servlet.ServletConfig config)
 		
 		try {
 			conn.dml(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	/*	if(vorname != null){
-		RequestDispatcher disp = 
-				   getServletContext().
-				   getRequestDispatcher("/index.jsp");
-		   disp.forward(request, response);
-		   System.out.println(vorname); 
-		}else{
-			RequestDispatcher disp = 
-					   getServletContext().
-					   getRequestDispatcher("/Login.jsp");
-			   disp.forward(request, response);
-		}
-		*/
-		/*if(temp == false){
-			RequestDispatcher disp = 
-					   getServletContext().
-					   getRequestDispatcher("/registration.jsp");
-			   disp.forward(request, response);
-		}else{
-			RequestDispatcher disp = 
+			//Benutzer konnte erfolgreich hinzugefügt werden
+			 RequestDispatcher disp = 
 					   getServletContext().
 					   getRequestDispatcher("/index.jsp");
 			   disp.forward(request, response);
-		}*/
+		} catch (SQLException e) {
+			//Fehler, dass Benutzername bereits vorhanden ist
+				RequestDispatcher disp = 
+						   getServletContext().
+						   getRequestDispatcher("/index.jsp");
+				   disp.forward(request, response);		
+		}
 	}
 	
 	

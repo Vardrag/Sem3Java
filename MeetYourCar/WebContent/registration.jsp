@@ -100,7 +100,7 @@ else
 <%
    if (!vError.isEmpty())
    {
-      out.print("<b>Bitte überprüfen Sie die markierten Felder</b><br>");
+      out.print("<b>Bitte überprüfen Sie die markierten Felder</b><br> oder Benutzername vorhanden!");
    }   
 %>  
                </div>
