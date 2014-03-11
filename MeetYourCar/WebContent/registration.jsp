@@ -153,12 +153,6 @@ else
             <img src="pics/hr.jpg" class="btw">
             <br/><br/>
             <%@ include file="Datenschutz/Impressum.html" %>
-            <br/><br/>
-            <h3> Meine WebApp-Startseite </h3>
-            <p> <a href="/MeetYourCarRoot/StartPage.jsp">/MeetYourCarRoot/StartPage.jsp</a> </p>
-            <br/>
-            <h3> Meine Servlet </h3>
-            <p> <a href="/MeetYourCarRoot/MainCar">/MeetYourCarRoot/MainCar</a> </p>
          </div>
          <div class="bottom"></div>
       </div>

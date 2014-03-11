@@ -37,12 +37,6 @@
             <h3>Kontakt:</h3>
             Telefon: 0351 447220<br/>
             E-Mail: Kontakt@MeetYourCar.de
-            <br/><br/><br/><br/>
-            <h3> Meine WebApp-Startseite </h3>
-            <p> <a href="/MeetYourCarRoot/StartPage.jsp">/MeetYourCarRoot/StartPage.jsp</a> </p>
-            <br/>
-            <h3> Meine Servlet </h3>
-            <p> <a href="/MeetYourCarRoot/MainCar">/MeetYourCarRoot/MainCar</a> </p>
          </div>
          <div class="bottom"></div>
       </div>
