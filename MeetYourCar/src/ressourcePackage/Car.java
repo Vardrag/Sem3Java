@@ -16,6 +16,7 @@ public Double dblPreis; //Angebotspreis
 public String strUser;
 public String strOrt;
 public int intKID;
+public String strKraftstoff;
 
 //private Methoden
 
