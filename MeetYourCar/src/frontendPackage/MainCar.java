@@ -12,6 +12,7 @@ import myServlets.DbConn;
 import java.net.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import ressourcePackage.Car;
 import ressourcePackage.User;
@@ -84,6 +85,7 @@ public void init(javax.servlet.ServletConfig config)
 		String benutzername = request.getParameter("benutzername");
 		String email = request.getParameter("email");
 		String passwort = request.getParameter("passwort");
+		carObj.intKmStand = Integer.parseInt(request.getParameter("Kilometerstand"));
 		
 		userObj.setAnrede(anrede);
 		userObj.setVorname(vorname);
@@ -116,12 +118,22 @@ public void init(javax.servlet.ServletConfig config)
 	if( form_index != null){
 	   
 		//Objecte definieren
-	   Object strAutofirma = request.getParameter("Marke");
-	   Object strLeistung = request.getParameter("Leistung");
-	   Object datErstzul = request.getParameter("Erstzulassung");
-	   Object strPreis = request.getParameter("Preis");
-	   Object strKraftstoff = request.getParameter("Kraftstoff");
-	   Object strKilometerstand = request.getParameter("Kilometerstand");
+	   String strAutofirma = request.getParameter("Marke");
+	   String strLeistung = request.getParameter("Leistung");
+	   
+	   
+	   
+	   
+	   //carObj.datErstzul = Date.parse(request.getParameter("Erstzulassung"));
+	   String datErstzul = request.getParameter("Erstzulassung");
+	   
+	   
+	   
+	   
+	   carObj.dblPreis = Double.parseDouble(request.getParameter("Preis"));
+	   carObj.strKrSt = request.getParameter("Kraftstoff");
+	   carObj.intKmStand = Integer.parseInt(request.getParameter("Kilometerstand"));
+	   
 	   
 	   //HttpSessions erzeugen
 	   
@@ -146,29 +158,28 @@ public void init(javax.servlet.ServletConfig config)
 	   HttpSession Erstzulassung = request.getSession();
 	   Erstzulassung.setAttribute("Erstzulassung", ausgabe_Erstzulassung);
 	   
-	 //Parameter f�r Preis
-	   StringBuffer pre = new StringBuffer((String) strPreis);
+	   //Parameter f�r Preis
+	   StringBuffer pre = new StringBuffer((Double.toString (carObj.dblPreis)));
 	   String ausgabe_Preis = pre.toString();
 	   //session handle f�r Preis
 	   HttpSession Preis = request.getSession();
 	   Preis.setAttribute("Preis", ausgabe_Preis);
 	   
 	   //Parameter f�r Kraftstoff
-	   StringBuffer kra = new StringBuffer((String) strKraftstoff);
+	   StringBuffer kra = new StringBuffer((String) carObj.strKrSt);
 	   String ausgabe_Kraftstoff = kra.toString();
 	   //session handle f�r Kraftstoff
 	   HttpSession Kraftstoff = request.getSession();
 	   Kraftstoff.setAttribute("Kraftstoff", ausgabe_Kraftstoff);
 	   
 	   //Parameter f�r Kilometerstand
-	   StringBuffer kil = new StringBuffer((String) strKilometerstand);
+	   StringBuffer kil = new StringBuffer((Integer.toString (carObj.intKmStand)));
 	   String ausgabe_Kilometerstand = kil.toString();
 	   //session handle f�r Kraftstoff
 	   HttpSession Kilometerstand = request.getSession();
 	   Kilometerstand.setAttribute("Kilometerstand", ausgabe_Kilometerstand);
 	   
-	   
-	   
+	   //carObj.intKmStand = strKilometerstand;
 	   //Ende des HttpSessions erzeugens
 	   
 	   //JSP-Aufruf
@@ -185,8 +196,12 @@ public void init(javax.servlet.ServletConfig config)
 	
 	if( form_login != null){
 		
+		
+		
+		
+		
+		
 	}
-	
 	
 	
 	   }  
