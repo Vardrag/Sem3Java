@@ -46,12 +46,14 @@
                <br/><br/>
                Leistung:<br/>
                <select name="Leistung" class="drop_select">
-                  <option value="min">min.</option>
                   <option value="20">20 PS</option>
                   <option value="40">40 PS</option>
                   <option value="60">60 PS</option>
                   <option value="80">80 PS</option>
                   <option value="100">100 PS</option>
+                  <option value="150">150 PS</option>
+                  <option value="180">180 PS</option>
+                  <option value="200">200 PS</option>
                </select>
                <br/><br/>
                Erstzulassung:<br/>
@@ -63,14 +65,28 @@
                   <option value="2009">2009</option>
                   <option value="2008">2008</option>
                   <option value="2007">2007</option>
+                  <option value="2006">2006</option>
+                  <option value="2005">2005</option>
+                  <option value="2004">2004</option>
+                  <option value="2003">2003</option>
+                  <option value="2002">2002</option>
+                  <option value="2001">2001</option>
+                  <option value="2000">2000</option>
+                  
                </select>
             </div>
             <div class="rechts">
                Preis:<br/>
                <select name="Preis" class="drop_select">
-                  <option value="bis">bis</option>
-                  <option value="100">100</option>
-                  <option value="200">200</option>
+                  <option value="1000">1000</option>
+                  <option value="2000">2000</option>
+                  <option value="4000">4000</option>
+                  <option value="6000">6000</option>
+                  <option value="8000">8000</option>
+                  <option value="10000">10000</option>
+                  <option value="15000">15000</option>
+                  <option value="20000">20000</option>
+                  <option value="40000">40000</option>
                </select>
                <br/><br/>
                Kraftstoff:<br/>
