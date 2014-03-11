@@ -85,7 +85,6 @@ public void init(javax.servlet.ServletConfig config)
 		String benutzername = request.getParameter("benutzername");
 		String email = request.getParameter("email");
 		String passwort = request.getParameter("passwort");
-		carObj.intKmStand = Integer.parseInt(request.getParameter("Kilometerstand"));
 		
 		userObj.setAnrede(anrede);
 		userObj.setVorname(vorname);
@@ -118,41 +117,32 @@ public void init(javax.servlet.ServletConfig config)
 	if( form_index != null){
 	   
 		//Objecte definieren
-	   String strAutofirma = request.getParameter("Marke");
-	   String strLeistung = request.getParameter("Leistung");
-	   
-	   
-	   
-	   
-	   //carObj.datErstzul = Date.parse(request.getParameter("Erstzulassung"));
-	   String datErstzul = request.getParameter("Erstzulassung");
-	   
-	   
-	   
-	   
+	   carObj.strAutofirma = request.getParameter("Marke");
+	   carObj.strLeistung = request.getParameter("Leistung");  
+	   carObj.strErstzul = request.getParameter("Erstzulassung");
 	   carObj.dblPreis = Double.parseDouble(request.getParameter("Preis"));
-	   carObj.strKrSt = request.getParameter("Kraftstoff");
+	   carObj.strKraftstoff = request.getParameter("Kraftstoff");
 	   carObj.intKmStand = Integer.parseInt(request.getParameter("Kilometerstand"));
 	   
 	   
 	   //HttpSessions erzeugen
 	   
 	   //Parameter f�r Marke
-	   StringBuffer mar = new StringBuffer((String) strAutofirma);
+	   StringBuffer mar = new StringBuffer((String) carObj.strAutofirma);
 	   String ausgabe_Marke = mar.toString();   
 	   //session handle f�r Marke
 	   HttpSession Marke = request.getSession();
 	   Marke.setAttribute("Marke", ausgabe_Marke);
 	   	  	   
 	   //Parameter f�r Leistung
-	   StringBuffer lei = new StringBuffer((String) strLeistung);
+	   StringBuffer lei = new StringBuffer((String) carObj.strLeistung);
 	   String ausgabe_Leistung = lei.toString();
 	   //session handle f�r Leistung
 	   HttpSession Leistung = request.getSession();
 	   Leistung.setAttribute("Leistung", ausgabe_Leistung);
 	   
 	   //Parameter f�r Erstzulassung
-	   StringBuffer ers = new StringBuffer((String) datErstzul);
+	   StringBuffer ers = new StringBuffer((String) carObj.strErstzul);
 	   String ausgabe_Erstzulassung= ers.toString();
 	   //session handle f�r Erstzulassung
 	   HttpSession Erstzulassung = request.getSession();
@@ -166,7 +156,7 @@ public void init(javax.servlet.ServletConfig config)
 	   Preis.setAttribute("Preis", ausgabe_Preis);
 	   
 	   //Parameter f�r Kraftstoff
-	   StringBuffer kra = new StringBuffer((String) carObj.strKrSt);
+	   StringBuffer kra = new StringBuffer((String) carObj.strKraftstoff);
 	   String ausgabe_Kraftstoff = kra.toString();
 	   //session handle f�r Kraftstoff
 	   HttpSession Kraftstoff = request.getSession();
